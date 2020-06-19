@@ -32,9 +32,10 @@ module.exports = function (app) {
             console.log('Friends Data of i: ' + friendsData[i])
             console.log('Body2: ' + req.body)
 
-            // Inner loop to access friends' scores
-            friendsData[i];
-            friendsData[i].scores
+            // ----------Commented out by Nilsen
+            // Inner loop to access friends' scores, 
+            // friendsData[i];
+            // friendsData[i].scores
 
             // ------- this logic came from Nilsen with Miranda's parsInt added
             // This logic is working but it has not turned it into intergers
@@ -56,6 +57,8 @@ module.exports = function (app) {
         // newFriend.scores = scoresArray;
         // console.log('Scores Array ' + scoresArray);
 
+
+         // ---- This logic comes from Miranda
         var compareScoresArray = [];
         for (var i = 0; i < friendsData.length; i++) {
             var comparedScore = 0;
