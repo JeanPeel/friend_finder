@@ -177,6 +177,9 @@
             crossorigin="anonymous"></script>
 
         <script>
+            // -----tried this logic from Jacob but it did not like it
+            //    $(document).ready(function() {
+            //     console.log('jquery loaded.'),
 
             // Capture the form inputs
             $("#submit").on("click", function (event) {
@@ -230,7 +233,8 @@
                     console.log('User data, scores: ' + userData.scores);
                     console.log('User data: ' + userData);
 
-                    // AJAX post the data to the friends API
+                    // ----- this logic is Mirandas logic and needs to bring in Nilsens logic to work.
+                    // post the data to the friends API
                     $.post("/api/friends", userData, function (data) {
                         $("#match-name").text(data.name);
                         $("#math-img").attr("src", data.photo);
