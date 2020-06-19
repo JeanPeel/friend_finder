@@ -8,15 +8,15 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 3336;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(_dirname, './app/public')));
+app.use(express.static(path.join(__dirname, './app/public')));
 
 htmlRoutes(app, path);
-apiRoutes(app);
+// apiRoutes(app);
 
 module.exports.lookForFriends = function () {
     let scoreArray = [];
