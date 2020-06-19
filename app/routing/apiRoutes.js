@@ -41,7 +41,7 @@ module.exports = function (app) {
             // This logic is working but it has not turned it into intergers
             var totalScore = 0;
             for (j = 0; j < friendsData[i].scores.length; j++) {
-                totalScore += (parseInt(friendsData[i])).scores[j] = req.body.scores[j]
+                totalScore += friendsData[i].scores[j] = req.body.scores[j]
             }
             console.log('Total Score: ' + totalScore)
         };
