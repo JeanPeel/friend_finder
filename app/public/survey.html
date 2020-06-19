@@ -180,9 +180,12 @@
             $("#submit").on("click", function (event) {
                 event.preventDefault();
 
+                // console.log('Survey button is clicked! ' + event)
+
                 // Form validation
                 function validateForm() {
                     var isValid = true;
+                    // console.log('form #1 is Valid? ' + isValid);
 
                     $(".form-control").each(function () {
                         if ($(this).val() === "") {
@@ -190,6 +193,8 @@
                         }
                     });
                     return isValid;
+                    // this console log does not get called
+                    console.log('form #2 is Valid? ' + isValid);
                 }
 
                 // If all required fields are filled
@@ -212,16 +217,25 @@
                         ]
                     };
 
+                    // user data comes out as [object Object]
+                    console.log('User data: ' + userData);
+
                     // AJAX post the data to the friends API
                     $.post("/api/friends", userData, function (data) {
                         $("#match-name").text(data.name);
                         $("#math-img").attr("src", data.photo);
 
                         $("#results-modal").modal("toggle");
+
+                        // this console.log is not working
+                        console.log('name and img: ' + data.name + data.photo)
                     });
                 }
                 else {
                     alert("Uh-oh! Looks like you missed a field, please fill that out before submitting.");
+
+                    // this console.log is not working
+                    console.log(alert)
                 }
             });
 
