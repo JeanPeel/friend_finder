@@ -37,7 +37,8 @@ module.exports = function (app) {
             // friendsData[i];
             // friendsData[i].scores
 
-            // ------- this logic came from Nilsen with Miranda's parsInt added
+            // ------- this logic came from Nilsen 
+            // ----I tried to add parsInt to this but it broke the logic
             // This logic is working but it has not turned it into intergers
             var totalScore = 0;
             for (j = 0; j < friendsData[i].scores.length; j++) {
