@@ -9,9 +9,12 @@ module.exports = function (app) {
 
         // ---- This logic came from Nilsen
         res.json(req.body);
-        console.log('Body: ' + req.body);
+
+        // this console log is working result is [object Object]
+        // console.log('Body: ' + req.body);
 
         // --- This logic came from Miranda adjusted with Nilsens
+        // --this is coming out undefined
         var newFriend = {
             name: friendsData.name,
             photo: friendsData.photo,
@@ -19,6 +22,7 @@ module.exports = function (app) {
         };
 
         // --- This logic came from Miranda adjusted with Nilsens
+        // --this is coming out undefined
         console.log('New Friend, name: ' + newFriend.name);
         console.log('New Friend, photo: ' + newFriend.photo);
         console.log('New Friend, scores: ' + newFriend.scores);
@@ -29,8 +33,12 @@ module.exports = function (app) {
 
         //Outer loop to access individual friends
         for (i = 0; i < friendsData.length; i++) {
+
+            // this is coming out as  [object Object]
             console.log('Friends Data of i: ' + friendsData[i])
-            console.log('Body2: ' + req.body)
+
+            // this console log is working result is [object Object]
+            // console.log('Body2: ' + req.body)
 
             // ----------Commented out by Nilsen
             // Inner loop to access friends' scores, 
@@ -44,6 +52,8 @@ module.exports = function (app) {
             for (j = 0; j < friendsData[i].scores.length; j++) {
                 totalScore += friendsData[i].scores[j] = req.body.scores[j]
             }
+
+            // this is coming out as a string of numbers instead of a total
             console.log('Total Score: ' + totalScore)
         };
 
@@ -59,7 +69,7 @@ module.exports = function (app) {
         // console.log('Scores Array ' + scoresArray);
 
 
-         // ---- This logic comes from Miranda
+        // ---- This logic comes from Miranda
         var compareScoresArray = [];
         for (var i = 0; i < friendsData.length; i++) {
             var comparedScore = 0;
@@ -67,6 +77,8 @@ module.exports = function (app) {
                 comparedScore += Math.abs(newFriend.scores[m] - friendsData[i].scores[m]);
             };
             compareScoresArray.push(comparedScore);
+
+            // this is coming out as Compared Score: 0, Compared Score: 0, Compared Score: 0, Compared Score: 0, Compared Score: 0
             console.log('Compared Score: ' + comparedScore);
         }
 
@@ -75,9 +87,12 @@ module.exports = function (app) {
             if (compareScoresArray[i] <= compareScoresArray[bestMatch]) {
                 bestMatch = i;
             }
+
+            // this is coming out as Best Match: 1, Best Match: 2, Best Match: 3, Best Match: 4
             console.log('Best Match: ' + bestMatch);
         }
 
+        // ReferenceError: theBestOfFriendsMatch is not defined
         var theBestestOfFriendsMatch = friendsData[bestMatch];
         console.log('Best of Friends Match: ' + theBestOfFriendsMatch)
 
