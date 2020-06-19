@@ -208,11 +208,8 @@
                 // If all required fields are filled
                 if (validateForm()) {
                     // Create an object for the user's data
-                    var userData = {
-                        id: 6,
-                        name: $("#name").val(),
-                        photo: $("#image").val(),
-                        scores: [
+
+                    var scoreArray = [
                             $("#q1").val(),
                             $("#q2").val(),
                             $("#q3").val(),
@@ -223,8 +220,15 @@
                             $("#q8").val(),
                             $("#q9").val(),
                             $("#q10").val()
-                        ]
+                        ];
+
+                    var userData = {
+                        id: 6,
+                        name: $("#name").val(),
+                        photo: $("#image").val(),
+                        scores: scoreArray
                     };
+
 
                     // user data comes out as [object Object]
                     console.log('User data, id: ' + userData.id);
@@ -232,6 +236,9 @@
                     console.log('User data, photo: ' + userData.photo);
                     console.log('User data, scores: ' + userData.scores);
                     console.log('User data: ' + userData);
+
+                    // -----I need to figure out how to move this above data over into my apiroute
+
 
                     // ----- this logic is Mirandas logic and needs to bring in Nilsens logic to work.
                     // post the data to the friends API
