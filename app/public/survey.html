@@ -151,11 +151,74 @@
 
         <footer class="footer">
             <div class="container">
-                  <p><a href="/api/friends" target="_blank">API Friends List</a> | <a href="https://github.com/Mjimenez05/Friend--Finder" target="_blank">GitHub Repo</a></p>
+                  <p><a href="/api/friends" target="_blank">API Friends List</a> | <a href="https://github.com/JeanPeel/friend_finder" target="_blank">GitHub Repo</a></p>
             </div>
           </footer>
     
     </div>
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+
+// Capture the form inputs
+    $("#submit").on("click", function(event)
+    {
+        event.preventDefault();
+
+        // Form validation
+        function validateForm()
+        {
+            var isValid = true;
+
+            $(".form-control").each(function()
+            {
+                if ($(this).val() === "")
+                {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        }
+
+        // If all required fields are filled
+        if (validateForm())
+        {
+            // Create an object for the user's data
+            var userData = {
+                name: $("name").val(),
+                photo: $("linkToPhoto").val,
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            };
+
+            // AJAX post the data to the friends API
+            $.post("/api/friends", userData, function(data)
+            {
+                $("#match-name").text(data.name);
+                $("#math-img").attr("src", data.photo);
+
+                $("#results-modal").modal("toggle");
+            });
+        }
+        else
+        {
+            alert("Uh-oh! Looks like you missed a field, please fill that out before submitting.");
+        }
+    });
+
+</script>
 </body>
 
 </html>
