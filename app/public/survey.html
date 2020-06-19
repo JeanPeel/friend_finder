@@ -41,17 +41,17 @@
         <hr>
 
         <h3 class="question"><b>Question 1</b></h3>
-        <h4>Which element best represents your personality?</h4>
+        <h4>1. Which element best represents your personality?</h4>
         <select class="form-control" id="q1" title="Pick one that applies most">
-            <option value="1">1 Fire</option>
-            <option value="2">2 Earth</option>
-            <option value="3">3 Water</option>
-            <option value="4">4 Air</option>
-            <option value="5">5 All of the Above</option>
+            <option value="1">1 (Fire)</option>
+            <option value="2">2 (Earth)</option>
+            <option value="3">3 (Water)</option>
+            <option value="4">4 (Air)</option>
+            <option value="5">5 (All of the Above)</option>
         </select>
 
         <h3 class="question"><b>Question 2</b></h3>
-        <h4>You like to be alone?</h4>
+        <h4>2. You like to be alone?</h4>
         <select class="form-control" id="q2" title="Pick one that applies most">
             <option value="1">1 (strongly agree)</option>
             <option value="2">2 </option>
@@ -61,7 +61,7 @@
         </select>
 
         <h3 class="question"><b>Question 3</b></h3>
-        <h4>You take life seriously and tend to brood?</h4>
+        <h4>3. You take life seriously and tend to brood?</h4>
         <select class="form-control" id="q3" title="Pick one that applies most">
             <option value="1">1 (strongly agree)</option>
             <option value="2">2 </option>
@@ -71,7 +71,7 @@
         </select>
 
         <h3 class="question"><b>Question 4</b></h3>
-        <h4>You are physically fit?</h4>
+        <h4>4. You are physically fit?</h4>
         <select class="form-control" id="q4" title="Pick one that applies most">
             <option value="1">1 (strongly agree)</option>
             <option value="2">2 </option>
@@ -81,7 +81,7 @@
         </select>
 
         <h3 class="question"><b>Question 5</b></h3>
-        <h4>You are stealthy and sneaky?</h4>
+        <h4>5. You are stealthy and sneaky?</h4>
         <select class="form-control" id="q5" title="Pick one that applies most">
             <option value="1">1 (strongly agree)</option>
             <option value="2">2 </option>
@@ -91,7 +91,7 @@
         </select>
 
         <h3 class="question"><b>Question 6</b></h3>
-        <h4>You are not good at academics and/or strategy?</h4>
+        <h4>6. You are not good at academics and/or strategy?</h4>
         <select class="form-control" id="q6" title="Pick one that applies most">
             <option value="1">1 (strongly agree)</option>
             <option value="2">2 </option>
@@ -101,7 +101,7 @@
         </select>
 
         <h3 class="question"><b>Question 7</b></h3>
-        <h4>You have a lot of charisma and are good at public speaking?</h4>
+        <h4>7. You have a lot of charisma and are good at public speaking?</h4>
         <select class="form-control" id="q7" title="Pick one that applies most">
             <option value="1">1 (strongly agree)</option>
             <option value="2">2 </option>
@@ -111,7 +111,7 @@
         </select>
 
         <h3 class="question"><b>Question 8</b></h3>
-        <h4>You feel conflicted by family relationships?</h4>
+        <h4>8. You feel conflicted by family relationships?</h4>
         <select class="form-control" id="q8" title="Pick one that applies most">
             <option value="1">1 (strongly agree)</option>
             <option value="2">2 </option>
@@ -121,7 +121,7 @@
         </select>
 
         <h3 class="question"><b>Question 9</b></h3>
-        <h4>You are not interested in what your elders say?</h4>
+        <h4>9. You are not interested in what your elders say?</h4>
         <select class="form-control" id="q9" title="Pick one that applies most">
             <option value="1">1 (strongly agree)</option>
             <option value="2">2 </option>
@@ -131,7 +131,7 @@
         </select>
 
         <h3 class="question"><b>Question 10</b></h3>
-        <h4>Tea is not important to you?</h4>
+        <h4>10. Tea is not important to you?</h4>
         <select class="form-control" id="q10
         " title="Pick one that applies most">
             <option value="1">1 (strongly agree)</option>
@@ -229,16 +229,19 @@
 
                         $("#results-modal").modal("toggle");
 
-                        // this console.log is not working
+                        // this console.log is working
                         console.log('name and img: ' + data.name + data.photo);
                     });
                 }
                 else {
                     alert("Uh-oh! Looks like you missed a field, please fill that out before submitting.");
 
-                    // this console.log is not working
+                    // this console.log has not been called no errors
                     console.log(alert);
                 }
+
+                // this logic is working
+                console.log('End of survey.html logic');
             });
 
         </script>
