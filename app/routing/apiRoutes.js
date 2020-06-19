@@ -18,6 +18,7 @@ module.exports = function (app) {
         for (var i = 0; i < request.body.scores.length; i++) {
             scoresArray.push(parseInt(request.body.scores[i]))
         };
+
         // coming out as not defined
         newFriend.scores = scoresArray;
         console.log('Scores Array ' + scoresArray)
