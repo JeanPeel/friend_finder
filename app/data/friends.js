@@ -1,6 +1,6 @@
 module.exports = {
     array: [{
-        "name":"MrX",
+        "name":"Mr X",
         "photo":"../images/mrX.jpg",
         "scores":[
             3,
