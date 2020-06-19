@@ -180,6 +180,7 @@
             $("#submit").on("click", function (event) {
                 event.preventDefault();
 
+             
                 // console log commented out because it is working
                 // console.log('Survey button is clicked! ' + event)
 
@@ -203,6 +204,7 @@
                 if (validateForm()) {
                     // Create an object for the user's data
                     var userData = {
+                        id: 6,
                         name: $("#name").val(),
                         photo: $("#image").val(),
                         scores: [

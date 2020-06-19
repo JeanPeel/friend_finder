@@ -16,6 +16,7 @@ module.exports = function (app) {
         // --- This logic came from Miranda adjusted with Nilsens
         // --this is coming out undefined
         var newFriend = {
+            id: friendsData.id,
             name: friendsData.name,
             photo: friendsData.photo,
             scores: []
@@ -23,6 +24,7 @@ module.exports = function (app) {
 
         // --- This logic came from Miranda adjusted with Nilsens
         // --this is coming out undefined
+        console.log('New Friend, id: ' + newFriend.id);
         console.log('New Friend, name: ' + newFriend.name);
         console.log('New Friend, photo: ' + newFriend.photo);
         console.log('New Friend, scores: ' + newFriend.scores);
