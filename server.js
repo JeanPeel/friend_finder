@@ -5,15 +5,15 @@ var app = express();
 
 var PORT = process.env.PORT || 8080;
 
-const bodyParser = require('body-parser'); 
+// const bodyParser = require('body-parser'); 
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, './app/public')));
 
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
