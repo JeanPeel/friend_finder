@@ -180,7 +180,7 @@
             $("#submit").on("click", function (event) {
                 event.preventDefault();
 
-             
+
                 // console log commented out because it is working
                 // console.log('Survey button is clicked! ' + event)
 
@@ -222,6 +222,10 @@
                     };
 
                     // user data comes out as [object Object]
+                    console.log('User data, id: ' + userData.id);
+                    console.log('User data, name: ' + userData.name);
+                    console.log('User data, photo: ' + userData.photo);
+                    console.log('User data, scores: ' + userData.scores);
                     console.log('User data: ' + userData);
 
                     // AJAX post the data to the friends API
