@@ -1,5 +1,5 @@
-module.exports = {
-    array: [{
+var friends = [
+    {
         "name":"Zuko",
         "photo":"https://vignette.wikia.nocookie.net/avatar/images/4/4b/Zuko.png/revision/latest?cb=20180630112142",
         "scores":[
@@ -78,6 +78,7 @@ module.exports = {
             5,
             5
           ]
-    }
-    ]
-  }
+        }
+    ];
+    
+    module.exports = friends;

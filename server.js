@@ -1,48 +1,16 @@
-const htmlRoutes = require ('./app/routing/htmlRoutes');
-const apiRouts = require('./app/routing/apiRoutes');
-const friends = require('./app/data/friends');
+  
+var express = require("express");
 
-const express = require('express');
-const bodyParser = require('body-parser'); 
-    // body parser is part of express but I installed it seperatly before I knew that.
-const path = require('path');
-const app = express();
+var app = express();
 
-const PORT = process.env.PORT || 3336;
+var PORT = process.env.PORT || 8080;
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.use(express.static(path.join(__dirname, './app/public')));
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
-htmlRoutes(app, path);
-// apiRoutes(app);
-
-module.exports.lookForFriends = function () {
-    let scoreArray = [];
-    let current = apiRoutes.user;
-
-    for (let i = 0; i < friends.array.length; i++) {
-        let friendScore = 0;
-        if (friends.array[i].name !== current.name) {
-
-            for (let j = 0; j < friends.array[i].scores.length; j++) {
-                let score = friends.array[i].scores[j];
-                let difference = math.abs(score - current.scores[j])
-                friendScore+=difference;
-            }
-            let friendObj = {};
-            friendObj.friend = friends.array[i];
-            friendObj.score = friendScore;
-            scoreArray.push(friendObj)
-        }
-    }
-    scoreArray.sort(function (a,b) {
-        return a.score - b.score;
-    });
-    return ScoreArray[0]
-}
-
-app.listen(PORT, function(){
-    console.log('App listening on http://localhost: ' + PORT);
+app.listen(PORT, function() {
+  console.log("App listening on PORT: " + PORT);
 });
