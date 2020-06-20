@@ -159,117 +159,141 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body"></div>
-                        <h2 id="match-name"></h2>
-                        <!-- How do we get a picture to show up for the person they matched with? -->
-                        <img id="match-img" src="http://lorempixel.com/output/people-q-c-640-480-5.jpg" alt="">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                    <h2 id="match-name"></h2>
+                    <!-- How do we get a picture to show up for the person they matched with? -->
+                    <img id="match-img" src="http://lorempixel.com/output/people-q-c-640-480-5.jpg" alt="">
                 </div>
-
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
+
         </div>
+    </div>
 
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 
-        <script>
-            // -----tried this logic from Jacob but it did not like it
-            //    $(document).ready(function() {
-            //     console.log('jquery loaded.'),
+    <script>
+        // -----tried this logic from Jacob but it did not like it
+        //    $(document).ready(function() {
+        //     console.log('jquery loaded.'),
 
-            // Capture the form inputs
-            $("#submit").on("click", function (event) {
-                event.preventDefault();
+        // Capture the form inputs
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
 
 
+            // console log commented out because it is working
+            // console.log('Survey button is clicked! ' + event)
+
+            // Form validation
+            function validateForm() {
+                var isValid = true;
                 // console log commented out because it is working
-                // console.log('Survey button is clicked! ' + event)
+                // console.log('form #1 is Valid? ' + isValid);
 
-                // Form validation
-                function validateForm() {
-                    var isValid = true;
-                    // console log commented out because it is working
-                    // console.log('form #1 is Valid? ' + isValid);
+                $(".form-control").each(function () {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                return isValid;
+                // this console log does not get called
+                console.log('form #2 is Valid? ' + isValid);
+            }
 
-                    $(".form-control").each(function () {
-                        if ($(this).val() === "") {
-                            isValid = false;
-                        }
-                    });
-                    return isValid;
-                    // this console log does not get called
-                    console.log('form #2 is Valid? ' + isValid);
-                }
+            // If all required fields are filled
+            if (validateForm()) {
+                // Create an object for the user's data
 
-                // If all required fields are filled
-                if (validateForm()) {
-                    // Create an object for the user's data
+                var scoreArray = [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ];
 
-                    var scoreArray = [
-                            $("#q1").val(),
-                            $("#q2").val(),
-                            $("#q3").val(),
-                            $("#q4").val(),
-                            $("#q5").val(),
-                            $("#q6").val(),
-                            $("#q7").val(),
-                            $("#q8").val(),
-                            $("#q9").val(),
-                            $("#q10").val()
-                        ];
+                // ---------- tried to use Jacobs logic to do parsInt on this array but it did not work
+                // let newScore = [];
 
-                    var userData = {
-                        id: 6,
-                        name: $("#name").val(),
-                        photo: $("#image").val(),
-                        scores: scoreArray
-                    };
+                // if (scoreArray.length === 0) {
+                //     for (let i = 1; i <= 10; i++) {
+                //         // get just the number like 1. out of string 1 (strongly disagree)
+
+                //         let newScore = [
+                //             $("#q1").val().charAt(0),
+                //             $("#q2").val().charAt(0),
+                //             $("#q3").val().charAt(0),
+                //             $("#q4").val().charAt(0),
+                //             $("#q5").val().charAt(0),
+                //             $("#q6").val().charAt(0),
+                //             $("#q7").val().charAt(0),
+                //             $("#q8").val().charAt(0),
+                //             $("#q9").val().charAt(0),
+                //             $("#q10").val().charAt(0)
+                //         ];
+
+                //         scoreArray.push(parseInt(newScore));
+                //     }
+                // };
+
+                var userData = {
+                    id: 6,
+                    name: $("#name").val(),
+                    photo: $("#image").val(),
+                    scores: scoreArray
+                };
 
 
-                    // user data comes out as [object Object]
-                    console.log('User data, id: ' + userData.id);
-                    console.log('User data, name: ' + userData.name);
-                    console.log('User data, photo: ' + userData.photo);
-                    console.log('User data, scores: ' + userData.scores);
-                    console.log('User data: ' + userData);
+                // user data comes out as [object Object]
+                console.log('User data, id: ' + userData.id);
+                console.log('User data, name: ' + userData.name);
+                console.log('User data, photo: ' + userData.photo);
+                console.log('User data, scores: ' + userData.scores);
+                console.log('User data: ' + userData);
 
-                    // -----I need to figure out how to move this above data over into my apiroute
+                // -----I need to figure out how to move this above data over into my apiroute
 
 
-                    // ----- this logic is Mirandas logic and needs to bring in Nilsens logic to work.
-                    // post the data to the friends API
-                    $.post("/api/friends", userData, function (data) {
-                        $("#match-name").text(data.name);
-                        $("#math-img").attr("src", data.photo);
+                // ----- this logic is Mirandas logic and needs to bring in Nilsens logic to work.
+                // post the data to the friends API
+                $.post("/api/friends", userData, function (data) {
+                    $("#match-name").text(data.name);
+                    $("#math-img").attr("src", data.photo);
 
-                        $("#results-modal").modal("toggle");
+                    $("#results-modal").modal("toggle");
 
-                        // this console.log is working
-                        console.log('name and img: ' + data.name + ", " + data.photo);
-                    });
-                }
-                else {
-                    alert("Uh-oh! Looks like you missed a field, please fill that out before submitting.");
+                    // this console.log is working
+                    console.log('name and img: ' + data.name + ", " + data.photo);
+                });
+            }
+            else {
+                alert("Uh-oh! Looks like you missed a field, please fill that out before submitting.");
 
-                    // this console.log has not been called no errors
-                    console.log(alert);
-                }
+                // this console.log has not been called no errors
+                console.log(alert);
+            }
 
-                // this logic is working
-                console.log('End of survey.html logic');
-            });
+            // this logic is working
+            console.log('End of survey.html logic');
+        });
 
-        </script>
-        <footer class="footer">
-            <div class="container">
-                <p><a href="/api/friends" target="_blank">API Friends List</a> | <a
-                        href="https://github.com/JeanPeel/friend_finder" target="_blank">GitHub Repo</a></p>
-            </div>
-        </footer>
+    </script>
+    <footer class="footer">
+        <div class="container">
+            <p><a href="/api/friends" target="_blank">API Friends List</a> | <a
+                    href="https://github.com/JeanPeel/friend_finder" target="_blank">GitHub Repo</a></p>
+        </div>
+    </footer>
 
     </div>
 </body>
