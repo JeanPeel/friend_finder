@@ -190,6 +190,9 @@
 
             // Form validation
             function validateForm() {
+
+                // ----Miranda made this logic, it makes sure there is a value in each field I think
+                
                 var isValid = true;
                 // console log commented out because it is working
                 // console.log('form #1 is Valid? ' + isValid);
@@ -237,7 +240,7 @@
                 console.log('User data, scores: ' + userData.scores);
                 console.log('User data: ' + userData);
 
-                // -----I need to figure out how to move this above data over into my apiroute
+                // -----I need to figure out how to move this above data over into my apiRoute
 
 
                 // ----- this logic is Mirandas logic and needs to bring in Nilsens logic to work.
@@ -253,6 +256,8 @@
                 });
             }
             else {
+
+                // ------- if isValid is false then they person missed a field and is alterted to that.
                 alert("Uh-oh! Looks like you missed a field, please fill that out before submitting.");
 
                 // this console.log has not been called no errors
