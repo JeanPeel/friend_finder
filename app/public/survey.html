@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Friend Finder</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-            crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Finder</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+</head>
 
 <body>
 
@@ -175,8 +175,72 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
+    <script>
 
-    
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+
+            function validateForm() {
+
+                var isValid = true;
+
+                $(".form-control").each(function () {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                return isValid;
+
+                console.log('form #2 is Valid? ' + isValid);
+            }
+
+            if (validateForm()) {
+
+                var scoreArray = [
+                    parseInt($("#q1").val().trim()),
+                    parseInt($("#q2").val().trim()),
+                    parseInt($("#q3").val().trim()),
+                    parseInt($("#q4").val().trim()),
+                    parseInt($("#q5").val().trim()),
+                    parseInt($("#q6").val().trim()),
+                    parseInt($("#q7").val().trim()),
+                    parseInt($("#q8").val().trim()),
+                    parseInt($("#q9").val().trim()),
+                    parseInt($("#q10").val().trim()),
+                ];
+
+                var userData = {
+                    id: 6,
+                    name: $("#name").val().trim(),
+                    photo: $("#image").val().trim(),
+                    scores: scoreArray
+                };
+
+                console.log('User data, id: ' + userData.id);
+                console.log('User data, name: ' + userData.name);
+                console.log('User data, photo: ' + userData.photo);
+                console.log('User data, scores: ' + userData.scores);
+                console.log('User data: ' + userData);
+                $.post("/api/friends", userData, function (data) {
+                    $("#match-name").text(data.name);
+                    $("#math-img").attr("src", data.photo);
+
+                    $("#results-modal").modal("toggle");
+                    console.log('name and img: ' + data.name + ", " + data.photo);
+                });
+            }
+            else {
+
+                alert("Uh-oh! Looks like you missed a field, please fill that out before submitting.");
+
+                console.log(alert);
+            }
+
+            console.log('End of survey.html logic');
+        });
+
+    </script>
+
     <footer class="footer">
         <div class="container">
             <p><a href="/api/friends" target="_blank">API Friends List</a> | <a
