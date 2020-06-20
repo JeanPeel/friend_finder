@@ -1,17 +1,26 @@
 
-    //let's start extracting the data
-	//... start using jquery as $ like you would in a browser
-    
-        // -----tried this logic from Jacob but it did not like it
-        //    $(document).ready(function() {
-        //     console.log('jquery loaded.'),
 
-        // Capture the form inputs
+//let's start extracting the data
+//... start using jquery as $ like you would in a browser
 
-        // ~~~~~~~use this!!!
-        // $("#submit").on("click", function (event) {
-        //     event.preventDefault();
-            // ~~~~~~use this!!/
+// -----tried this logic from Jacob but it did not like it
+//    $(document).ready(function() {
+//     console.log('jquery loaded.'),
+
+// Capture the form inputs
+
+// ~~~~~~~use this!!!
+// $("#submit").on("click", function (event) {
+//     event.preventDefault();
+// ~~~~~~use this!!/
+
+var submit = document.getElementsById("#submit");
+
+submit.onclick = function(event){
+    event.preventDefault();
+
+    console.log('submit has been clicked');
+};
 
             // console log commented out because it is working
             // console.log('Survey button is clicked! ' + event)
@@ -23,7 +32,7 @@
                 // ~~~~~~use this!!/
 
                 // ----Miranda made this logic, it makes sure there is a value in each field I think
-                
+
                 // ~~~~~~use this!!
                 // var isValid = true;
                 // ~~~~~~use this!!/
@@ -54,9 +63,9 @@
             // ~~~~~~use this!!
             // if (validateForm()) {
                 // ~~~~~~use this!!/
-                
+
                 // grabbing scores, putting them in an array, trimming, running parsInt on them to make then intergers
-                
+
                 // ~~~~~~use this!!
                 // var scoreArray = [
                 //     parseInt($("#q1").val().trim()),
@@ -98,11 +107,11 @@
                 // userInfo.push(userData);
                 // console.log('User Info on Survey: ' + userInfo)
 
-            
+
                 // var DOMinfo = storage.key(userData);
 
                 // console.log('DOM info: ' + DOMinfo);
-                
+
                 // localStorage["DOMinfo"] = userData;
 
                 // ----- this logic is Mirandas logic and needs to bring in Nilsens logic to work.
@@ -124,7 +133,7 @@
 
 
                 // ------- if isValid is false then they person missed a field and is alterted to that.
-               
+
                // ~~~~~~use this!!
                 // alert("Uh-oh! Looks like you missed a field, please fill that out before submitting.");
 // ~~~~~~use this!!/
@@ -134,7 +143,7 @@
 
                 // ~~~~~~use this!!
             //     console.log(alert);
-                
+
             // }
 // ~~~~~~use this!!/
 
