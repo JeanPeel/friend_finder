@@ -221,6 +221,8 @@
                 console.log('User data, photo: ' + userData.photo);
                 console.log('User data, scores: ' + userData.scores);
                 console.log('User data: ' + userData);
+
+                
                 $.post("/api/friends", userData, function (data) {
                     $("#match-name").text(data.name);
                     $("#math-img").attr("src", data.photo);

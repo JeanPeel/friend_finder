@@ -5,10 +5,6 @@ module.exports = function (app) {
         res.json(friendsData);
     });
 
-    app.get("/api/user", function (req, res) {
-        res.json(userInfo);
-    });
-
     app.post("/api/friends", function (req, res) {
 
         // ---- This logic came from Nilsen
@@ -19,20 +15,20 @@ module.exports = function (app) {
 
         // --- This logic came from Miranda adjusted with Nilsens
         // --this is coming out undefined
-        // var newFriend = {
-        //     id: userInfo.id,
-        //     name: userInfo.name,
-        //     photo: userInfo.photo,
-        //     scores: []
-        // };
+        var newFriend = {
+            id: friendsData.id,
+            name: friendsData.name,
+            photo: friendsData.photo,
+            scores: []
+        };
 
         // --- This logic came from Miranda adjusted with Nilsens
         // --this is coming out undefined
-        console.log('New Friend, id: ' + userInfo.id);
-        console.log('New Friend, name: ' + userInfo.name);
-        console.log('New Friend, photo: ' + userInfo.photo);
-        console.log('New Friend, scores: ' + userInfo.scores);
-        console.log('New  Friend: ' + userInfo);
+        console.log('New Friend, id: ' + newFriend.id);
+        console.log('New Friend, name: ' + newFriend.name);
+        console.log('New Friend, photo: ' + newFriend.photo);
+        console.log('New Friend, scores: ' + newFriend.scores);
+        console.log('New  Friend: ' + newFriend);
 
         // ------ this logic came from Nilsen ------
         var i;
@@ -66,12 +62,12 @@ module.exports = function (app) {
 
         // ---- This logic comes from Miranda
         // var scoresArray = [];
-        // for (var i = 0; i < userInfo[i].scores.length; i++) {
+        // for (var i = 0; i < newFriend[i].scores.length; i++) {
         //     scoresArray.push(parseInt(request.body.scores[i]))
         // };
 
         // // coming out as not defined
-        // userInfo.scores = scoresArray;
+        // newFriend.scores = scoresArray;
         // console.log('Scores Array ' + scoresArray);
 
 
@@ -79,8 +75,8 @@ module.exports = function (app) {
         var compareScoresArray = [];
         for (var i = 0; i < friendsData.length; i++) {
             var comparedScore = 0;
-            for (var m = 0; m < userInfo.scores.length; m++) {
-                comparedScore += Math.abs(userInfo.scores[m] - friendsData[i].scores[m]);
+            for (var m = 0; m < newFriend.scores.length; m++) {
+                comparedScore += Math.abs(newFriend.scores[m] - friendsData[i].scores[m]);
             };
             compareScoresArray.push(comparedScore);
 
@@ -105,8 +101,8 @@ module.exports = function (app) {
         response.json(theBestestOfFriendsMatch);
         console.log("Success! Friend Added!");
 
-        friendsData.push(userInfo);
-        console.log('New Friend ' + userInfo);
+        friendsData.push(newFriend);
+        console.log('New Friend ' + newFriend);
 
     });
 }
