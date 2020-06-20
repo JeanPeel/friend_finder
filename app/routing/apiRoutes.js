@@ -15,10 +15,34 @@ module.exports = function (app) {
 
         // --- This logic came from Miranda adjusted with Nilsens
         // --this is coming out undefined
+
+
+        // var score = req.body.score;
+
+        // // this is undefined
+        // console.log('did I get the score? ' + score)
+
+        // var scoreArray = [];
+
+
+        // for (s = 0; s < score.length; s++) {
+
+        //     console.log('Friends Data of s: ' + score[s])
+
+        //     scoreArray.push(parseInt((score[s]).val().trim()))
+
+        //     console.log('s of score: ' + score[s])
+        // };
+
+        // console.log('score array? ' + scoreArray)
+
+
+
+
         var newFriend = {
-            id: friendsData.id,
-            name: friendsData.name,
-            photo: friendsData.photo,
+            id: req.body.id,
+            name: req.body.name,
+            photo: req.body.photo,
             scores: []
         };
 
@@ -38,6 +62,8 @@ module.exports = function (app) {
 
             // this is coming out as  [object Object]
             console.log('Friends Data of i: ' + friendsData[i])
+
+
 
             // this console log is working result is [object Object]
             // console.log('Body2: ' + req.body)
