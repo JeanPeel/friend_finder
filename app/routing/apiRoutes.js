@@ -39,7 +39,7 @@ module.exports = function (app) {
         console.log('New Friend, scores: ' + newUser.scores);
         console.log('New  Friend: ' + newUser);
 
-       
+
         var i;
 
         // Adding up the New Users Score
@@ -67,10 +67,15 @@ module.exports = function (app) {
 
                 // calculate the score
                 totalScore2 += friendsData[k].scores[l]
-            }
+            };
+
+            scoreId = 0;
+
+            scoreId++;
 
             // push new calculated score into the array
-            friendsScores.push(totalScore2);
+            friendsScores.push(scoreId + ":" + totalScore2);
+
         };
 
         console.log('Friends Scores: ' + friendsScores);
@@ -85,7 +90,7 @@ module.exports = function (app) {
         for (m = 0; m < friendsScores.length; m++) {
 
             var newCompared = 0;
-            
+
             // gets absolute value of friends score minus user score
             newCompared += Math.abs(friendsScores[m] - userScore);
 
@@ -101,8 +106,7 @@ module.exports = function (app) {
 
         for (m = 0; m < comparedScores.length; m++) {
 
-            if(comparedScores[m] <= comparedScores[bestMatch])
-            {
+            if (comparedScores[m] <= comparedScores[bestMatch]) {
                 bestMatch = i;
             }
 
