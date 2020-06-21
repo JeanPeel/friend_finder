@@ -7,25 +7,16 @@ module.exports = function (app) {
 
     app.post("/api/friends", function (req, res) {
 
-        // ---- This logic came from Nilsen
+        // bring in the form data
         res.json(req.body);
 
-        // this console log is working result is [object Object]
-        // console.log('Body: ' + req.body);
-
-        // --- This logic came from Miranda adjusted with Nilsens
-        // --this is coming out undefined
-
-
-        // var score = req.body.score;
-
-        // // this is undefined
-        // console.log('did I get the score? ' + score)
-
+        // set up to calculate the score
         var scoreArray = [];
 
+        // bring in the score value
         score = req.body.scores;
 
+        // putting score values in an array
         for (s = 0; s < score.length; s++) {
 
             scoreArray.push(Number(score[s]));
@@ -33,6 +24,7 @@ module.exports = function (app) {
 
         console.log('score array ' + scoreArray);
 
+        // putting score array into new User
         var newUser = {
             id: req.body.id,
             name: req.body.name,
@@ -41,30 +33,26 @@ module.exports = function (app) {
         };
 
         console.log('scores in newUser object: ' + newUser.scores);
-
-        // --- This logic came from Miranda adjusted with Nilsens
-        // --this is coming out undefined
         console.log('New Friend, id: ' + newUser.id);
         console.log('New Friend, name: ' + newUser.name);
         console.log('New Friend, photo: ' + newUser.photo);
         console.log('New Friend, scores: ' + newUser.scores);
         console.log('New  Friend: ' + newUser);
 
-        // ------ this logic came from Nilsen ------
+       
         var i;
 
-        //Outer loop to access individual friends
+        // Adding up the New Users Score
         var userScore = 0;
         for (i = 0; i < newUser.scores.length; i++) {
             userScore += newUser.scores[i]
         };
 
-
         console.log('User Score: ' + userScore);
 
 
 
-        // --------trying new code
+        // Adding up the friends scores
 
         var k;
 
@@ -73,26 +61,32 @@ module.exports = function (app) {
         //Outer loop to access individual friends
         for (k = 0; k < friendsData.length; k++) {
 
+            // Inner loop accesses the score 
             var totalScore2 = 0;
             for (l = 0; l < friendsData[k].scores.length; l++) {
+
+                // calculate the score
                 totalScore2 += friendsData[k].scores[l]
             }
+
+            // push new calculated score into the array
             friendsScores.push(totalScore2);
         };
 
         console.log('Friends Scores: ' + friendsScores);
 
-        // -----next bit
+
+        // Comparing the User Score to the Friends Scores
 
         var m;
 
-        //Outer loop to access individual friends
         var comparedScores = [];
 
         for (m = 0; m < friendsScores.length; m++) {
 
             var newCompared = 0;
             
+            // gets absolute value of friends score minus user score
             newCompared += Math.abs(friendsScores[m] - userScore);
 
             comparedScores.push(newCompared);
@@ -101,7 +95,7 @@ module.exports = function (app) {
         console.log('Compared Score 1 : ' + comparedScores);
 
 
-        // ----- sort
+        // Calculates the best Matched Score
 
         var bestMatch = 0;
 
@@ -115,8 +109,6 @@ module.exports = function (app) {
             console.log('Compared Scores M: ' + comparedScores[m]);
 
         };
-
-        
 
         console.log('Best Match: ' + bestMatch);
 
