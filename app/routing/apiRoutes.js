@@ -71,18 +71,29 @@ module.exports = function (app) {
                 totalScore2 += friendsData[k].scores[l]
             };
 
-            // push new calculated score into the array
-            friendsScores.push("a" + scoreId + ":" + totalScore2);
+            compareScore = Math.abs(totalScore2 - userScore)
 
+            // push new calculated score into the array
+            friendsScores.push("a" + scoreId + ":" + compareScore);
+            console.log('compare score: ' + compareScore);
         };
 
         console.log('Friends Scores: ' + friendsScores);
-
+        console.log('test item1: ' + (friendsScores.a0));
 
         // Comparing the User Score to the Friends Scores
 
-        // compare0 = friendsScores.0
+        // var compareArray = {
+        //     c0: (Math.abs(friendsScores.a0 - userScore)),
+        //     c1: (Math.abs(friendsScores.a1 - userScore)),
+        //     c2: (Math.abs(friendsScores.a2 - userScore)),
+        //     c3: (Math.abs(friendsScores.a3 - userScore)),
+        //     c4: (Math.abs(friendsScores.a4 - userScore))
+        // };
 
+        // console.log('Compare Array: ' + compareArray);
+
+        // console.log('test item2: ' + (compareArray.c0));
         // var m;
 
         // var comparedScores = [];
