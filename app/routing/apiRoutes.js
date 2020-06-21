@@ -56,9 +56,9 @@ module.exports = function (app) {
 
         var k;
 
-        var friendsArray = {};
-
         var friendsScores = [];
+
+        
 
         scoreId = 0;
 
@@ -77,23 +77,51 @@ module.exports = function (app) {
             compareScore = Math.abs(totalScore2 - userScore)
 
             // push new calculated compared score into the array
-            friendsScores.push("a" + scoreId + ":" + compareScore);
+            // friendsScores.push("a" + scoreId + ":" + compareScore);
+
+            // scoreName = "{" + 'a' + scoreId + ':';
+            // scoreEnd = "}"
+           
+                // friendsScores.push({scoreName, compareScore, scoreEnd});
+
+                friendsScores.push(compareScore);
 
             console.log('compare score: ' + compareScore);
         };
 
+        // friendsArray = "[" + friendsScores + "]"
+
         console.log('Friends Scores: ' + friendsScores);
+
+        // console.log('Friends Array: ' + friendsArray );
+
+        // --------
+
+        // console.log('item in friends array ' + friendsArray.a0);
+
+        // console.log('item in friends scores ' + friendsScores.a0)
+
+
+        // const convertArrayToObject = (array, key) => {
+        //     const initialValue = {friendsScores};
+        //     return array.reduce((obj, item) => {
+        //       return {
+        //         ...obj,
+        //         [item[key]]: item,
+        //       };
+        //     }, initialValue);
+        //   };
 
         // Calculates the best Matched Score
 
 
-        var bestMatch = 0;
+        // var bestMatch = 0;
 
-                    if (comparedScores[m] <= comparedScores[bestMatch]) {
-                bestMatch = i;
-            }
+        //             if (comparedScores[m] <= comparedScores[bestMatch]) {
+        //         bestMatch = i;
+        //     }
 
-            console.log('Compared Scores M: ' + comparedScores[m]);
+        //     console.log('Compared Scores M: ' + comparedScores[m]);
 
 
 
