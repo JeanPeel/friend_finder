@@ -72,7 +72,7 @@ module.exports = function (app) {
             };
 
             // push new calculated score into the array
-            friendsScores.push(scoreId + ":" + totalScore2);
+            friendsScores.push("a" + scoreId + ":" + totalScore2);
 
         };
 
@@ -81,38 +81,40 @@ module.exports = function (app) {
 
         // Comparing the User Score to the Friends Scores
 
-        var m;
+        // compare0 = friendsScores.0
 
-        var comparedScores = [];
+        // var m;
 
-        for (m = 0; m < friendsScores.length; m++) {
+        // var comparedScores = [];
 
-            var newCompared = 0;
+        // for (m = 0; m < friendsScores.length; m++) {
 
-            // gets absolute value of friends score minus user score
-            newCompared += Math.abs(friendsScores[m] - userScore);
+        //     var newCompared = 0;
 
-            // comparedScores.push(newCompared);
-        };
+        //     // gets absolute value of friends score minus user score
+        //     newCompared += Math.abs(friendsScores[m] - userScore);
 
-        console.log('Compared Score 1 : ' + comparedScores);
+        //     // comparedScores.push(newCompared);
+        // };
+
+        // console.log('Compared Score 1 : ' + comparedScores);
 
 
         // Calculates the best Matched Score
 
-        var bestMatch = 0;
+        // var bestMatch = 0;
 
-        for (m = 0; m < comparedScores.length; m++) {
+        // for (m = 0; m < comparedScores.length; m++) {
 
-            if (comparedScores[m] <= comparedScores[bestMatch]) {
-                bestMatch = i;
-            }
+        //     if (comparedScores[m] <= comparedScores[bestMatch]) {
+        //         bestMatch = i;
+        //     }
 
-            console.log('Compared Scores M: ' + comparedScores[m]);
+        //     console.log('Compared Scores M: ' + comparedScores[m]);
 
-        };
+        // };
 
-        console.log('Best Match: ' + bestMatch);
+        // console.log('Best Match: ' + bestMatch);
 
     });
 }
