@@ -58,8 +58,10 @@ module.exports = function (app) {
 
         friendsScores = [];
 
+        scoreId = 0;
+
         //Outer loop to access individual friends
-        for (k = 0; k < friendsData.length; k++) {
+        for (k = 0; k < friendsData.length; k++, scoreId++) {
 
             // Inner loop accesses the score 
             var totalScore2 = 0;
@@ -68,10 +70,6 @@ module.exports = function (app) {
                 // calculate the score
                 totalScore2 += friendsData[k].scores[l]
             };
-
-            scoreId = 0;
-
-            scoreId++;
 
             // push new calculated score into the array
             friendsScores.push(scoreId + ":" + totalScore2);
@@ -94,7 +92,7 @@ module.exports = function (app) {
             // gets absolute value of friends score minus user score
             newCompared += Math.abs(friendsScores[m] - userScore);
 
-            comparedScores.push(newCompared);
+            // comparedScores.push(newCompared);
         };
 
         console.log('Compared Score 1 : ' + comparedScores);
