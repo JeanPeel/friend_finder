@@ -58,12 +58,8 @@ module.exports = function (app) {
 
         var friendsScores = [];
 
-        
-
-        scoreId = 0;
-
         //Outer loop to access individual friends
-        for (k = 0; k < friendsData.length; k++, scoreId++) {
+        for (k = 0; k < friendsData.length; k++) {
 
             // Inner loop accesses the score 
             var totalScore2 = 0;
@@ -73,71 +69,32 @@ module.exports = function (app) {
                 totalScore2 += friendsData[k].scores[l]
             };
 
-            // calculate compared score
+            // calculate compared score which is friends score - userscore
             compareScore = Math.abs(totalScore2 - userScore)
 
-            // push new calculated compared score into the array
-            // friendsScores.push("a" + scoreId + ":" + compareScore);
-
-            // scoreName = "{" + 'a' + scoreId + ':';
-            // scoreEnd = "}"
-           
-                // friendsScores.push({scoreName, compareScore, scoreEnd});
-
-                friendsScores.push(compareScore);
+            friendsScores.push(compareScore);
 
             console.log('compare score: ' + compareScore);
+
         };
 
-        // friendsArray = "[" + friendsScores + "]"
 
         console.log('Friends Scores: ' + friendsScores);
 
-        // console.log('Friends Array: ' + friendsArray );
+        
+        var bestMatch = 0;
 
-        // --------
+        for (m = 0; m < friendsScores.length; m++) {
 
-        // console.log('item in friends array ' + friendsArray.a0);
+            if (friendsScores[m] <= friendsScores[bestMatch]) {
+                bestMatch = m;
+            }
 
-        // console.log('item in friends scores ' + friendsScores.a0)
+            console.log('Compared Scores M: ' + friendsScores[m]);
 
+        };
 
-        // const convertArrayToObject = (array, key) => {
-        //     const initialValue = {friendsScores};
-        //     return array.reduce((obj, item) => {
-        //       return {
-        //         ...obj,
-        //         [item[key]]: item,
-        //       };
-        //     }, initialValue);
-        //   };
-
-        // Calculates the best Matched Score
-
-
-        // var bestMatch = 0;
-
-        //             if (comparedScores[m] <= comparedScores[bestMatch]) {
-        //         bestMatch = i;
-        //     }
-
-        //     console.log('Compared Scores M: ' + comparedScores[m]);
-
-
-
-        // var bestMatch = 0;
-
-        // for (m = 0; m < comparedScores.length; m++) {
-
-        //     if (comparedScores[m] <= comparedScores[bestMatch]) {
-        //         bestMatch = i;
-        //     }
-
-        //     console.log('Compared Scores M: ' + comparedScores[m]);
-
-        // };
-
-        // console.log('Best Match: ' + bestMatch);
+        console.log('Best Match: ' + bestMatch);
 
     });
 }
