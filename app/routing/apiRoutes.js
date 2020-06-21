@@ -22,113 +22,103 @@ module.exports = function (app) {
         // // this is undefined
         // console.log('did I get the score? ' + score)
 
-        // var scoreArray = [];
+        var scoreArray = [];
 
+        score = req.body.scores;
 
-        // for (s = 0; s < score.length; s++) {
+        for (s = 0; s < score.length; s++) {
 
-        //     console.log('Friends Data of s: ' + score[s])
+            scoreArray.push(Number(score[s]));
+        };
 
-        //     scoreArray.push(parseInt((score[s]).val().trim()))
+        console.log('score array ' + scoreArray);
 
-        //     console.log('s of score: ' + score[s])
-        // };
-
-        // console.log('score array? ' + scoreArray)
-
-
-
-
-        var newFriend = {
+        var newUser = {
             id: req.body.id,
             name: req.body.name,
             photo: req.body.photo,
-            scores: []
+            scores: scoreArray
         };
+
+        console.log('scores in newUser object: ' + newUser.scores);
 
         // --- This logic came from Miranda adjusted with Nilsens
         // --this is coming out undefined
-        console.log('New Friend, id: ' + newFriend.id);
-        console.log('New Friend, name: ' + newFriend.name);
-        console.log('New Friend, photo: ' + newFriend.photo);
-        console.log('New Friend, scores: ' + newFriend.scores);
-        console.log('New  Friend: ' + newFriend);
+        console.log('New Friend, id: ' + newUser.id);
+        console.log('New Friend, name: ' + newUser.name);
+        console.log('New Friend, photo: ' + newUser.photo);
+        console.log('New Friend, scores: ' + newUser.scores);
+        console.log('New  Friend: ' + newUser);
 
         // ------ this logic came from Nilsen ------
         var i;
 
         //Outer loop to access individual friends
-        for (i = 0; i < friendsData.length; i++) {
-
-            // this is coming out as  [object Object]
-            console.log('Friends Data of i: ' + friendsData[i])
-
-
-
-            // this console log is working result is [object Object]
-            // console.log('Body2: ' + req.body)
-
-            // ----------Commented out by Nilsen
-            // Inner loop to access friends' scores, 
-            // friendsData[i];
-            // friendsData[i].scores
-
-            // ------- this logic came from Nilsen 
-            // ----I tried to add parsInt to this but it broke the logic
-            // This logic is working but it has not turned it into intergers
-            var totalScore = 0;
-            for (j = 0; j < friendsData[i].scores.length; j++) {
-                totalScore += friendsData[i].scores[j] = req.body.scores[j]
-            }
-
-            // this is coming out as a string of numbers instead of a total
-            console.log('Total Score: ' + totalScore)
+        var userScore = 0;
+        for (i = 0; i < newUser.scores.length; i++) {
+            userScore += newUser.scores[i]
         };
 
 
-        // ---- This logic comes from Miranda
-        // var scoresArray = [];
-        // for (var i = 0; i < newFriend[i].scores.length; i++) {
-        //     scoresArray.push(parseInt(request.body.scores[i]))
-        // };
-
-        // // coming out as not defined
-        // newFriend.scores = scoresArray;
-        // console.log('Scores Array ' + scoresArray);
+        console.log('User Score: ' + userScore);
 
 
-        // ---- This logic comes from Miranda
-        var compareScoresArray = [];
-        for (var i = 0; i < friendsData.length; i++) {
-            var comparedScore = 0;
-            for (var m = 0; m < newFriend.scores.length; m++) {
-                comparedScore += Math.abs(newFriend.scores[m] - friendsData[i].scores[m]);
-            };
-            compareScoresArray.push(comparedScore);
 
-            // this is coming out as Compared Score: 0, Compared Score: 0, Compared Score: 0, Compared Score: 0, Compared Score: 0
-            console.log('Compared Score: ' + comparedScore);
-        }
+        // --------trying new code
+
+        var k;
+
+        friendsScores = [];
+
+        //Outer loop to access individual friends
+        for (k = 0; k < friendsData.length; k++) {
+
+            var totalScore2 = 0;
+            for (l = 0; l < friendsData[k].scores.length; l++) {
+                totalScore2 += friendsData[k].scores[l]
+            }
+            friendsScores.push(totalScore2);
+        };
+
+        console.log('Friends Scores: ' + friendsScores);
+
+        // -----next bit
+
+        var m;
+
+        //Outer loop to access individual friends
+        var comparedScores = [];
+
+        for (m = 0; m < friendsScores.length; m++) {
+
+            var newCompared = 0;
+            
+            newCompared += Math.abs(friendsScores[m] - userScore);
+
+            comparedScores.push(newCompared);
+        };
+
+        console.log('Compared Score 1 : ' + comparedScores);
+
+
+        // ----- sort
 
         var bestMatch = 0;
-        for (var i = 1; i < compareScoresArray.length; i++) {
-            if (compareScoresArray[i] <= compareScoresArray[bestMatch]) {
+
+        for (m = 0; m < comparedScores.length; m++) {
+
+            if(comparedScores[m] <= comparedScores[bestMatch])
+            {
                 bestMatch = i;
             }
 
-            // this is coming out as Best Match: 1, Best Match: 2, Best Match: 3, Best Match: 4
-            console.log('Best Match: ' + bestMatch);
-        }
+            console.log('Compared Scores M: ' + comparedScores[m]);
 
-        // ReferenceError: theBestOfFriendsMatch is not defined
-        var theBestestOfFriendsMatch = friendsData[bestMatch];
-        console.log('Best of Friends Match: ' + theBestOfFriendsMatch)
+        };
 
-        response.json(theBestestOfFriendsMatch);
-        console.log("Success! Friend Added!");
+        
 
-        friendsData.push(newFriend);
-        console.log('New Friend ' + newFriend);
+        console.log('Best Match: ' + bestMatch);
 
     });
 }
