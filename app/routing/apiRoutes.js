@@ -88,7 +88,7 @@ module.exports = function (app) {
         // m is increasing in value each round with m++, so  using m gives us a unique # for each item
         for (m = 0; m < friendsScores.length; m++) {
 
-            // if the friends score is less then or equal to 0?  I am not sure why this works.
+            // if the current friends score is less then or equal to the past friend score then it is a match
             if (friendsScores[m] <= friendsScores[bestMatch]) {
                 // then best match is equal to m, which has increased by 1 each time, so m tells us which number is a match
                 bestMatch = m;
