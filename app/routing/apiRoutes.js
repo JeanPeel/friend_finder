@@ -72,6 +72,7 @@ module.exports = function (app) {
             // calculate compared score which is friends score - userscore
             compareScore = Math.abs(totalScore2 - userScore)
 
+            // pushes compare score into friends score array
             friendsScores.push(compareScore);
 
             console.log('compare score: ' + compareScore);
@@ -81,12 +82,15 @@ module.exports = function (app) {
 
         console.log('Friends Scores: ' + friendsScores);
 
-        
+
         var bestMatch = 0;
 
+        // m is increasing in value each round with m++, so  using m gives us a unique # for each item
         for (m = 0; m < friendsScores.length; m++) {
 
+            // if the friends score is less then or equal to 0?  I am not sure why this works.
             if (friendsScores[m] <= friendsScores[bestMatch]) {
+                // then best match is equal to m, which has increased by 1 each time, so m tells us which number is a match
                 bestMatch = m;
             }
 
