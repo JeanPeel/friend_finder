@@ -56,7 +56,9 @@ module.exports = function (app) {
 
         var k;
 
-        friendsScores = [];
+        var friendsArray = {};
+
+        var friendsScores = [];
 
         scoreId = 0;
 
@@ -71,47 +73,29 @@ module.exports = function (app) {
                 totalScore2 += friendsData[k].scores[l]
             };
 
+            // calculate compared score
             compareScore = Math.abs(totalScore2 - userScore)
 
-            // push new calculated score into the array
+            // push new calculated compared score into the array
             friendsScores.push("a" + scoreId + ":" + compareScore);
+
             console.log('compare score: ' + compareScore);
         };
 
         console.log('Friends Scores: ' + friendsScores);
-        console.log('test item1: ' + (friendsScores.a0));
-
-        // Comparing the User Score to the Friends Scores
-
-        // var compareArray = {
-        //     c0: (Math.abs(friendsScores.a0 - userScore)),
-        //     c1: (Math.abs(friendsScores.a1 - userScore)),
-        //     c2: (Math.abs(friendsScores.a2 - userScore)),
-        //     c3: (Math.abs(friendsScores.a3 - userScore)),
-        //     c4: (Math.abs(friendsScores.a4 - userScore))
-        // };
-
-        // console.log('Compare Array: ' + compareArray);
-
-        // console.log('test item2: ' + (compareArray.c0));
-        // var m;
-
-        // var comparedScores = [];
-
-        // for (m = 0; m < friendsScores.length; m++) {
-
-        //     var newCompared = 0;
-
-        //     // gets absolute value of friends score minus user score
-        //     newCompared += Math.abs(friendsScores[m] - userScore);
-
-        //     // comparedScores.push(newCompared);
-        // };
-
-        // console.log('Compared Score 1 : ' + comparedScores);
-
 
         // Calculates the best Matched Score
+
+
+        var bestMatch = 0;
+
+                    if (comparedScores[m] <= comparedScores[bestMatch]) {
+                bestMatch = i;
+            }
+
+            console.log('Compared Scores M: ' + comparedScores[m]);
+
+
 
         // var bestMatch = 0;
 
