@@ -1,19 +1,19 @@
 let friendsData = require("../data/friends");
 let bfData = require("../data/bestFriends");
 
-const userData = require("../script/user");
-const User = userData.User;
-const newUser = userData.User.newUser;
-const userScore = userData.User.userScore;
+let userData = require("../script/userFile");
+// const user = userData.User;
+// const newUser = userData.User.newUser;
+// const userScore = userData.User.userScore;
 
-const compareData = require("../script/compare");
-const Compare = compareData.Compare;
-const friendsScore = compareData.Compare.friendsScore;
+let compareData = require("../script/compareFile");
+// const compare = compareData.Compare;
+// const friendsScore = compareData.Compare.friendsScore;
 
-const bestestData = require("../script/best");
-const Best = bestestData.Best;
-const bestMatch =  bestestData.Best.bestMatch;
-const bestData = bestestData.Best.bestData;
+let bestestData = require("../script/bestFile");
+// const best = bestestData.Best;
+// const bestMatch =  bestestData.Best.bestMatch;
+// const bestData = bestestData.Best.bestData;
 
 
 
@@ -35,21 +35,40 @@ module.exports = function (app) {
         res.json(bfData);
     });
 
+    // _______________________________________________________
+    // _______________________________________________________
+
     app.post("/api/friends", function (req, res) {
         //console.log (req.body)
         // res.json(req.body)
 
-        var uData = userData.User.newUser;
+        // var uData = userData.User.newUser;
+        var uData = userData.User;
 
-        console.log('UData: ' + uData)
+        // undefined
+        // console.log('UData: ', uData)
+
+        // function
+        console.log('UData: ', uData)
+       
+    
+        // useable info
+        console.log('friends data: ', friendsData);
+
+        // undefined
+        // console.log('friends names: ', friendsData.name);
 
         var i;
 
-        console.log('friends names: ' + friendsData.name);
-
         //Outer loop to access individual friends
         for (i = 0; i < friendsData.length; i++) {
-            console.log(friendsData[i])
+
+
+            console.log('Friends Data for loop ran')
+            // this logs out the information in friends Data
+            // console.log(friendsData[i])
+
+
             // console.log(req.body)
         //Inner loop to access friends' scores
           //  friendsData[i];
@@ -58,7 +77,8 @@ module.exports = function (app) {
             for (j = 0; j < friendsData[i].scores.length; j++) {
                totalScore += friendsData[i].scores[j] = req.body.scores[j]
             }
-            console.log(totalScore)
+           
+            console.log('Total Score: ', totalScore)
         };
     
 

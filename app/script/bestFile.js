@@ -1,17 +1,17 @@
 let friendsData = require("../data/friends");
-let bfData = require("../data/bestFriends");
+// let bfData = require("../data/bestFriends");
 
-const userData = require("../script/user");
-const User = userData.User;
-const newUser = userData.User.newUser;
-const userScore = userData.User.userScore;
+let userData = require("../script/userFile");
+// const user = userData.User;
+// const newUser = userData.User.newUser;
+// const userScore = userData.User.userScore;
 
-const compareData = require("../script/compare");
-const Compare = compareData.Compare;
-const friendsScore = compareData.Compare.friendsScore;
+let compareData = require("../script/compareFile");
+// const compare = compareData.Compare;
+// const friendsScore = compareData.Compare.friendsScore;
 
-// const bestestData = require("../script/best");
-// const Best = bestestData.Best;
+// let bestestData = require("../script/bestFile");
+// const best = bestestData.Best;
 // const bestMatch =  bestestData.Best.bestMatch;
 // const bestData = bestestData.Best.bestData;
 
