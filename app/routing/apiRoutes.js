@@ -1,8 +1,22 @@
-var friendsData = require("../data/friends");
-var bfData = require("../data/bestFriends");
-var userData = require("../script/user");
-var compareData = require("../script/compare");
-var bestData = require("../script/best");
+let friendsData = require("../data/friends");
+let bfData = require("../data/bestFriends");
+
+const userData = require("../script/user");
+const User = userData.User;
+const newUser = userData.User.newUser;
+const userScore = userData.User.userScore;
+
+const compareData = require("../script/compare");
+const Compare = compareData.Compare;
+const friendsScore = compareData.Compare.friendsScore;
+
+const bestestData = require("../script/best");
+const Best = bestestData.Best;
+const bestMatch =  bestestData.Best.bestMatch;
+const bestData = bestestData.Best.bestData;
+
+
+
 // const { response } = require("express");
 // const friends = require("../data/friends");
 // var express = require('express')
@@ -13,29 +27,61 @@ module.exports = function (app) {
         res.json(friendsData);
     });
 
-    app.get("/api/bfData", function (req, res) {
-        res.json(bfData);
-    });
-
     app.get("/api/body", function (req, res) {
         res.json(req.body);
     });
 
-    // bestData = [];
-
-    // JsonBestData = [];
-    app.post("/api/friends", function (req, res) {
-       
+    app.get("/api/bfData", function (req, res) {
+        res.json(bfData);
     });
 
-    app.post("/api/bfData", function (req, res) {
-       
+    app.post("/api/friends", function (req, res) {
+        //console.log (req.body)
+        // res.json(req.body)
+
+        var uData = userData.User.newUser;
+
+        console.log('UData: ' + uData)
+
+        var i;
+
+        console.log('friends names: ' + friendsData.name);
+
+        //Outer loop to access individual friends
+        for (i = 0; i < friendsData.length; i++) {
+            console.log(friendsData[i])
+            // console.log(req.body)
+        //Inner loop to access friends' scores
+          //  friendsData[i];
+          //  friendsData[i].scores
+          var totalScore = 0;
+            for (j = 0; j < friendsData[i].scores.length; j++) {
+               totalScore += friendsData[i].scores[j] = req.body.scores[j]
+            }
+            console.log(totalScore)
+        };
+    
+
     });
 
     app.post("/api/body", function (req, res) {
-        
+        console.log('Body: ' + res.body);
     });
+
+    app.post("/api/bfData", function (req, res) {
+
+        
+        console.log('BF Data: ' + bfData);
+
+    });
+
+
 }
+
+
+    // bestData = [];
+
+    // JsonBestData = [];
 
     // app.post("/api/friends", function (req, res) {
 
@@ -195,11 +241,11 @@ module.exports = function (app) {
 
         // // middleware that is specific to this router
         // // router.use(bestData, function(req, res) {
-            
-            
+
+
         // //     console.log('Use Best Data: ' + bestData);
         // //     console.log('Use Best Name: ' + res.name);
-          
+
         // // })
         // // // define the home page route
         // // router.get(bestData, function(req, res) {
@@ -321,16 +367,16 @@ module.exports = function (app) {
 //     data.post('/api/JsonBestData', function (req, res) {
 
 //         // return JSON.stringify(JsonBestData);
-    
+
 //         // res.json(req.body)
-    
+
 //         // console.log('best Data Api2: ' + res);
 //         // console.log('api called');
 //         // console.log('done with post call b: ');
-    
+
 //         // console.log('Best Data: ' + bestData);
 //         console.log('Outside edge of app ' + JsonBestData);
-    
+
 //     });
 // }
 
