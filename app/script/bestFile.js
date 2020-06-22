@@ -2,21 +2,26 @@ let friendsData = require("../data/friends");
 // let bfData = require("../data/bestFriends");
 
 let userData = require("../script/userFile");
-// const user = userData.User;
-// const newUser = userData.User.newUser;
-// const userScore = userData.User.userScore;
 
 let compareData = require("../script/compareFile");
-// const compare = compareData.Compare;
-// const friendsScore = compareData.Compare.friendsScore;
-
-// let bestestData = require("../script/bestFile");
-// const best = bestestData.Best;
-// const bestMatch =  bestestData.Best.bestMatch;
-// const bestData = bestestData.Best.bestData;
 
 
 function Best () {
+
+    console.log('Best Function Called');
+
+    // console.log('friends data: ', friendsData);
+
+    // console.log('BF Data: ', bfData);
+
+    var uData = userData.User;
+    //  FUNCTION
+    // console.log('UData: ', uData);
+
+    var compare = compareData.Compare;
+    // FUNCTION
+    // console.log('Compare Data: ', compare);
+
     var bestMatch = 0;
 
     // m is increasing in value each round with m++, so  using m gives us a unique # for each item

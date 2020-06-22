@@ -1,21 +1,27 @@
 let friendsData = require("../data/friends");
 let bfData = require("../data/bestFriends");
 
-// let userData = require("../script/userFile");
-// const user = userData.User;
-// const newUser = userData.User.newUser;
-// const userScore = userData.User.userScore;
-
 let compareData = require("../script/compareFile");
-// const compare = compareData.Compare;
-// const friendsScore = compareData.Compare.friendsScore;
 
-let bestestData = require("../script/bestFile");
-// const best = bestestData.Best;
-// const bestMatch =  bestestData.Best.bestMatch;
-// const bestData = bestestData.Best.bestData;
+let bestData = require("../script/bestFile");
 
 function User () {
+
+    console.log('User Function Called');
+
+    // console.log('friends data: ', friendsData);
+
+    // console.log('BF Data: ', bfData);
+
+    var compare = compareData.Compare;
+    // FUNCTION
+    // console.log('Compare Data: ', compare);
+
+    var best = bestData.Best;
+    // FUNCTION
+    // console.log('Compare Data: ', best);
+
+
 
     res.json(req.body);
 
