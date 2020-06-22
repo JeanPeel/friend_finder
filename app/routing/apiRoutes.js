@@ -22,7 +22,7 @@ module.exports = function (app) {
             scoreArray.push(Number(score[s]));
         };
 
-        console.log('score array ' + scoreArray);
+        // console.log('score array ' + scoreArray);
 
         // putting score array into new User
         var newUser = {
@@ -32,12 +32,12 @@ module.exports = function (app) {
             scores: scoreArray
         };
 
-        console.log('scores in newUser object: ' + newUser.scores);
+        // console.log('scores in newUser object: ' + newUser.scores);
         console.log('New Friend, id: ' + newUser.id);
         console.log('New Friend, name: ' + newUser.name);
         console.log('New Friend, photo: ' + newUser.photo);
         console.log('New Friend, scores: ' + newUser.scores);
-        console.log('New  Friend: ' + newUser);
+        // console.log('New  Friend: ' + newUser);
 
 
         var i;
@@ -69,18 +69,18 @@ module.exports = function (app) {
                 totalScore2 += friendsData[k].scores[l]
             };
 
-            // calculate compared score which is friends score - userscore
+            // calculate absolute value of compared score which is friends score - userscore
             compareScore = Math.abs(totalScore2 - userScore)
 
             // pushes compare score into friends score array
             friendsScores.push(compareScore);
 
-            console.log('compare score: ' + compareScore);
+            // console.log('compare score: ' + compareScore);
 
         };
 
 
-        console.log('Friends Scores: ' + friendsScores);
+        console.log('Friends Scores Compared: ' + friendsScores);
 
 
         var bestMatch = 0;
@@ -94,11 +94,11 @@ module.exports = function (app) {
                 bestMatch = m;
             }
 
-            console.log('Compared Scores M: ' + friendsScores[m]);
+            // console.log('Compared Scores M: ' + friendsScores[m]);
 
         };
 
-        console.log('Best Match: ' + bestMatch);
+        console.log('Best Match: Friend #' + bestMatch);
 
     });
 }

@@ -1,0 +1,52 @@
+.main_div {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .container {
+    background-image: url("../images/avatarLastAirbender.png");
+} */
+
+.characters {
+    width: 80vw;
+    /* flex-direction: row; */
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+}
+
+.rows {
+    width: 80vw;
+    flex-direction: row;
+    /* flex-direction: column; */
+    justify-content: center;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.character {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+    padding: 0 0 10% 0;
+    margin: 0;
+}
+
+.match-imgs {
+    width: 90%;
+    height: auto;
+    /* padding: 0 5% 0 5%; */
+    margin: 0;
+}
