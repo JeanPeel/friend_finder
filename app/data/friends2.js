@@ -1,8 +1,8 @@
-var friends = [
+var friends2 = [
     {
         'id': 0,
-        "name": "Zuko",
-        "photo": "https://vignette.wikia.nocookie.net/avatar/images/4/4b/Zuko.png/revision/latest?cb=20180630112142",
+        "name": "Azula",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/1/12/Azula.png/revision/latest?cb=20140905084941",
         "scores": [
             1,
             1,
@@ -18,8 +18,8 @@ var friends = [
     },
     {
         'id': 1,
-        "name": "Toph Beifong",
-        "photo": "https://vignette.wikia.nocookie.net/avatar/images/4/46/Toph_Beifong.png/revision/latest?cb=20131230122047",
+        "name": "Mai",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/1/12/Azula.png/revision/latest?cb=20140905084941",
         "scores": [
             2,
             2,
@@ -35,8 +35,8 @@ var friends = [
     },
     {
         'id': 2,
-        "name": "Katara",
-        "photo": "https://vignette.wikia.nocookie.net/avatar/images/7/7a/Katara_smiles_at_coronation.png/revision/latest?cb=20150104171449",
+        "name": "Ty Lee",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/6/6d/Ty_Lee.png/revision/latest?cb=20140905083814",
         "scores": [
             3,
             3,
@@ -52,8 +52,8 @@ var friends = [
     },
     {
         'id': 3,
-        "name": "Sokka",
-        "photo": "https://vignette.wikia.nocookie.net/avatar/images/c/cc/Sokka.png/revision/latest?cb=20140905085428",
+        "name": "Pakku",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/b/bb/Pakku_looking_smug.png/revision/latest?cb=20140119164142",
         "scores": [
             4,
             4,
@@ -69,8 +69,8 @@ var friends = [
     },
     {
         'id': 4,
-        "name": "Aang",
-        "photo": "https://vignette.wikia.nocookie.net/avatar/images/a/ae/Aang_at_Jasmine_Dragon.png/revision/latest?cb=20130612174003",
+        "name": "Roku",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/f/f6/Roku.png/revision/latest?cb=20120601014953",
         "scores": [
             5,
             5,
@@ -86,8 +86,8 @@ var friends = [
     },
     {
         'id': 5,
-        "name": "Lion turtle",
-        "photo": "https://i.pinimg.com/564x/29/50/d3/2950d359da8233934b31ae21152f6249.jpg",
+        "name": "Yue",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/9/9d/Kind_Yue.png/revision/latest?cb=20140122221734",
         "scores": [
             6,
             6,
@@ -101,8 +101,6 @@ var friends = [
             6
         ]
     }
-]
+];
 
-
-
-module.exports = friends;
+module.exports = friends2;

@@ -1,9 +1,15 @@
 var friendsData = require("../data/friends");
+const { response } = require("express");
+const friends = require("../data/friends");
 
 module.exports = function (app) {
     app.get("/api/friends", function (req, res) {
         res.json(friendsData);
     });
+
+    bestData = [];
+
+    JsonBestData = [];
 
     app.post("/api/friends", function (req, res) {
 
@@ -33,10 +39,14 @@ module.exports = function (app) {
         };
 
         // console.log('scores in newUser object: ' + newUser.scores);
-        console.log('New Friend, id: ' + newUser.id);
-        console.log('New Friend, name: ' + newUser.name);
-        console.log('New Friend, photo: ' + newUser.photo);
-        console.log('New Friend, scores: ' + newUser.scores);
+        console.log(' ');
+        console.log('-----------------------------------------------')
+        console.log('User id: ' + newUser.id);
+        console.log('User name: ' + newUser.name);
+        console.log('User photo: ' + newUser.photo);
+        console.log('User scores: ' + newUser.scores);
+        console.log('-----------------------------------------------')
+
         // console.log('New  Friend: ' + newUser);
 
 
@@ -48,7 +58,9 @@ module.exports = function (app) {
             userScore += newUser.scores[i]
         };
 
-        console.log('User Score: ' + userScore);
+
+
+        console.log('User Total Score: ' + userScore);
 
 
 
@@ -67,7 +79,12 @@ module.exports = function (app) {
 
                 // calculate the score
                 totalScore2 += friendsData[k].scores[l]
+
+
             };
+
+
+            console.log('Friends Total Score: ' + totalScore2)
 
             // calculate absolute value of compared score which is friends score - userscore
             compareScore = Math.abs(totalScore2 - userScore)
@@ -79,9 +96,7 @@ module.exports = function (app) {
 
         };
 
-
-        console.log('Friends Scores Compared: ' + friendsScores);
-
+        console.log('Users, Friends Difference: ' + friendsScores);
 
         var bestMatch = 0;
 
@@ -91,14 +106,171 @@ module.exports = function (app) {
             // if the current friends score is less then or equal to the past friend score then it is a match
             if (friendsScores[m] <= friendsScores[bestMatch]) {
                 // then best match is equal to m, which has increased by 1 each time, so m tells us which number is a match
-                bestMatch = m;
+                bestMatch = m
             }
 
             // console.log('Compared Scores M: ' + friendsScores[m]);
 
+
+            // console.log('Best Match: Friend #' + bestMatch);
+
         };
 
-        console.log('Best Match: Friend #' + bestMatch);
+        var bestMatch = [];
+
+        var bestPhoto = [];
+        var bestName = [];
+
+
+        // console.log('best Match is read here 1' + bestMatch)
+
+        // looking for the friends Id that matches the best match #
+
+        for (n = 0; n < friendsData.length; n++) {
+
+            // console.log('friends data ID' + friendsData[n].id)
+
+            // matchedId = friendsData[n].id;
+
+            // console.log('matched ID: ' + matchedId)
+
+            // console.log('best Match is read here 2' + bestMatch)
+
+            if (friendsData[n].id == bestMatch) {
+
+                console.log('-----------------------------------------------')
+                console.log('Best Match Found!');
+                bestPhoto = friendsData[n].photo;
+                bestName = friendsData[n].name;
+                bestScores = friendsData[n].scores;
+            };
+        };
+
+        var bestData = {
+            id: 8,
+            name: bestName,
+            photo: bestPhoto,
+            scores: bestScores
+        };
+
+        //   res.json(bestData);
+
+        //   console.log('is json responding to best data?' + res.json(bestData))
+
+        console.log('Matched Name: ' + bestData.name);
+        console.log('Matched Photo: ' + bestData.photo);
+        console.log('Matched Scores: ' + bestData.scores);
+        console.log('-----------------------------------------------')
+
+
+        // bestestFriendMatch = friendsData[bestData];
+
+
+
+
+
+
+        //     friends.push(bestData);
+
+        JsonBestData = JSON.stringify(bestData);
+
+        //     bestServer = new XMLHttpRequest();
+
+        // bestServer.send('send XML Json Best Data: ' + JsonBestData);
+
+
+
+        // bestServer = new bestServerRequest();
+
+        // bestServer.send('send Json Best Data: ' + JsonBestData);
+
+
+        // app.get('/api/JsonBestData', function (req, res) {
+        //     res.json(JsonBestData);
+        //     console.log('success json is updated!');
+        // });
+
+        // app.post('/api/JsonBestData', function (req, res) {
+
+        //     // res.json(req.body)
+
+        //     console.log('best Data Api: ' + res);
+        //     // console.log('api called');
+        //     // console.log('done with post call b: ');
+
+        //     // console.log('Best Data: ' + bestData);
+        //     console.log('Json Best Data: ' + JsonBestData);
+
+        // });
+
+        // console.log('done with post call a: ');
+
+        // console.log('-----------------------------------------------')
+        console.log('Matched Data sent to .json: ' + JsonBestData);
+        console.log('-----------------------------------------------')
+
+        // app.get("/api/bestData", function (data) {
+        //     data.json(bestData);
+        //     console.log('done with get call b: ');
+        // });
+
+
+        // app.post("/api/bestData", function (data) {
+        //     console.log('best Data Api: ' + data);
+        //     console.log('api called');
+        //     console.log('done with post call b: ');
+        // });
+
+        // console.log('done with post call a: ');
 
     });
+
+    
+
+    // console.log('Json stringify: ' + bestData)
+
+    // return JSON.stringify(JsonBestData);
+
+    // console.log('Json stringify: ' + JsonBestData)
+
+    // return JSON.stringify(bestData);
+    // console.log('return .json Best Data: ' + bestData);
+
+    // bestData = [];
+
+    // console.log('best Data on the outside: ' + bestData)
+
+    // app.get("/api/bestData", function (data) {
+
+    //     return JSON.stringify(bestData, data);
+
+    // });
+
+
+    // app.post("/api/bestData", bestData, function (req, data) {
+    //     res.json(req.data)
+    //     console.log('best Data Api: ' + data);
+    // });
+
+    app.get('/api/JsonBestData', function (req, res) {
+        res.json(JsonBestData);
+        console.log('success json2 is updated!');
+    });
+
+    app.post('/api/JsonBestData', function (req, res) {
+
+        // return JSON.stringify(JsonBestData);
+
+        // res.json(req.body)
+
+        // console.log('best Data Api2: ' + res);
+        // console.log('api called');
+        // console.log('done with post call b: ');
+
+        // console.log('Best Data: ' + bestData);
+        console.log('Json Best Data2: ' + JsonBestData);
+
+    });
+
+    // return JSON.stringify(JsonBestData);
 }

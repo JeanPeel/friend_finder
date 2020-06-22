@@ -170,7 +170,9 @@
                     <div class="modal-body"></div>
                     <h2 id="match-name">Cabbage Merchant</h2>
                     <!-- How do we get a picture to show up for the person they matched with? -->
-                    <img id="match-img" src="https://vignette.wikia.nocookie.net/avatar/images/2/2f/Cabbage_merchant.png/revision/latest?cb=20140112200908" alt="">
+                    <img id="match-img"
+                        src="https://vignette.wikia.nocookie.net/avatar/images/2/2f/Cabbage_merchant.png/revision/latest?cb=20140112200908"
+                        alt="">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -186,6 +188,7 @@
         crossorigin="anonymous"></script>
 
     <script>
+        // var bestMatch = require('../routing/apiroutes.js')
 
         $("#submit").on("click", function (event) {
             event.preventDefault();
@@ -220,7 +223,7 @@
                 ];
 
                 var userData = {
-                    id: 6,
+                    id: 7,
                     name: $("#name").val().trim(),
                     photo: $("#image").val().trim(),
                     scores: scoreArray
@@ -232,6 +235,9 @@
                 console.log('User data, scores: ' + userData.scores);
                 console.log('User data: ' + userData);
 
+                // return JSON.stringify(bestData);
+                // console.log('return .json Best Data: ' + bestData);
+
 
                 $.post("/api/friends", userData, function (data) {
                     $("#match-name").text(data.name);
@@ -239,7 +245,76 @@
 
                     $("#results-modal").modal("toggle");
                     console.log('name and img: ' + data.name + ", " + data.photo);
+
+                    // $.post("/api/bestData", function (req, res) {
+
+                    //     console.log('Best Data name and img: ' + data.name + ", " + data.photo);
+                    // });
+
+                    // console.log('Best Data: ' + bestMatch)
+
+                    // return JSON.stringify(JsonBestData);
+
+
+                    // app.get('/api/JsonBestData', function (req, res) {
+                    //     res.json(JsonBestData);
+                    //     console.log('success json2 is updated!');
+                    // });
+
+                    // $.get('/api/JsonBestData', function (req, res) {
+
+                    //     // return JSON.stringify(JsonBestData);
+
+                    //     res.json(JsonBestData);
+
+                    //     // return JSON.stringify(JsonBestData);
+
+                    // });
+
+
+                    // $.post('/api/JsonBestData', function (res) {
+
+                    //     return JSON.stringify(JsonBestData);
+
+                    //     // res.json(JsonBestData);
+
+                    //     // console.log('name and img: ' + res.name + ", " + res.photo);
+
+                    //     console.log('Json best data on survey: ' + JsonBestData);
+
+                    //     // $.post("/api/bestData", function (req, res) {
+
+                    //     //     console.log('Best Data name and img: ' + data.name + ", " + data.photo);
+                    //     // });
+
+                    //     // console.log('Best Data: ' + bestMatch)
+                    // });
+
                 });
+
+                $.post('/api/JsonBestData', function (res) {
+
+                    return JSON.stringify(JsonBestData);
+
+                    // console.log('name and img: ' + res.name + ", " + res.photo);
+
+                    console.log('Json best data on survey: ' + JsonBestData);
+
+                    // $.post("/api/bestData", function (req, res) {
+
+                    //     console.log('Best Data name and img: ' + data.name + ", " + data.photo);
+                    // });
+
+                    // console.log('Best Data: ' + bestMatch)
+                });
+
+
+                // $.post("/api/friends", bestData, function (data) {
+                //     $("#match-name").text(data.name);
+                //     $("#match-img").attr("src", data.photo);
+                //     $("#results-modal").modal("toggle");
+                //     console.log('name and img: ' + data.name + ", " + data.photo);
+                // });
             }
             else {
 

@@ -1,8 +1,8 @@
-var friends = [
+var friends3 = [
     {
         'id': 0,
-        "name": "Zuko",
-        "photo": "https://vignette.wikia.nocookie.net/avatar/images/4/4b/Zuko.png/revision/latest?cb=20180630112142",
+        "name": "Ozai",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/4/4a/Ozai.png/revision/latest?cb=20130612170743",
         "scores": [
             1,
             1,
@@ -18,8 +18,8 @@ var friends = [
     },
     {
         'id': 1,
-        "name": "Toph Beifong",
-        "photo": "https://vignette.wikia.nocookie.net/avatar/images/4/46/Toph_Beifong.png/revision/latest?cb=20131230122047",
+        "name": "Suki",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/1/14/Suki.png/revision/latest?cb=20130819094354",
         "scores": [
             2,
             2,
@@ -35,8 +35,8 @@ var friends = [
     },
     {
         'id': 2,
-        "name": "Katara",
-        "photo": "https://vignette.wikia.nocookie.net/avatar/images/7/7a/Katara_smiles_at_coronation.png/revision/latest?cb=20150104171449",
+        "name": "Momo and Appa",
+        "photo": "https://decider.com/wp-content/uploads/2020/03/appa-and-momo-last-airbender.jpg?quality=90&strip=all&w=720&h=480&crop=1",
         "scores": [
             3,
             3,
@@ -52,8 +52,8 @@ var friends = [
     },
     {
         'id': 3,
-        "name": "Sokka",
-        "photo": "https://vignette.wikia.nocookie.net/avatar/images/c/cc/Sokka.png/revision/latest?cb=20140905085428",
+        "name": "Bumi",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/e/e8/King_Bumi.png/revision/latest?cb=20140106141303",
         "scores": [
             4,
             4,
@@ -69,8 +69,8 @@ var friends = [
     },
     {
         'id': 4,
-        "name": "Aang",
-        "photo": "https://vignette.wikia.nocookie.net/avatar/images/a/ae/Aang_at_Jasmine_Dragon.png/revision/latest?cb=20130612174003",
+        "name": "Iroh",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/c/c1/Iroh_smiling.png/revision/latest?cb=20130626131914",
         "scores": [
             5,
             5,
@@ -86,8 +86,8 @@ var friends = [
     },
     {
         'id': 5,
-        "name": "Lion turtle",
-        "photo": "https://i.pinimg.com/564x/29/50/d3/2950d359da8233934b31ae21152f6249.jpg",
+        "name": "Gyatso",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/a/a4/Monk_Gyatso.png/revision/latest?cb=20140103203807",
         "scores": [
             6,
             6,
@@ -101,8 +101,6 @@ var friends = [
             6
         ]
     }
-]
+];
 
-
-
-module.exports = friends;
+module.exports = friends3;
