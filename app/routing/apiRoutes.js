@@ -13,11 +13,31 @@ module.exports = function (app) {
         res.json(friendsData);
     });
 
+    app.get("/api/bfData", function (req, res) {
+        res.json(bfData);
+    });
+
+    app.get("/api/body", function (req, res) {
+        res.json(req.body);
+    });
+
     // bestData = [];
 
     // JsonBestData = [];
-
     app.post("/api/friends", function (req, res) {
+       
+    });
+
+    app.post("/api/bfData", function (req, res) {
+       
+    });
+
+    app.post("/api/body", function (req, res) {
+        
+    });
+}
+
+    // app.post("/api/friends", function (req, res) {
 
 
 
@@ -244,7 +264,7 @@ module.exports = function (app) {
 
         // // console.log('done with post call a: ');
 
-    });
+    // });
 
 
 
@@ -295,7 +315,7 @@ module.exports = function (app) {
 
     // return JSON.stringify(JsonBestData);
     // console.log('Outside edge of app ' + JsonBestData);
-}
+// }
 
 // function Best (data) {
 //     data.post('/api/JsonBestData', function (req, res) {
