@@ -1,6 +1,8 @@
 var friendsData = require("../data/friends");
-const { response } = require("express");
-const friends = require("../data/friends");
+// const { response } = require("express");
+// const friends = require("../data/friends");
+// var express = require('express')
+// var router = express.Router()
 
 module.exports = function (app) {
     app.get("/api/friends", function (req, res) {
@@ -165,9 +167,22 @@ module.exports = function (app) {
 
         // bestestFriendMatch = friendsData[bestData];
 
+        // middleware that is specific to this router
+        // router.use(bestData, function(req, res) {
+            
+            
+        //     console.log('Use Best Data: ' + bestData);
+        //     console.log('Use Best Name: ' + res.name);
+          
+        // })
+        // // define the home page route
+        // router.get(bestData, function(req, res) {
 
+        //     res.send(bestData);
 
-
+        //     console.log('Get Best Data: ' + bestData);
+        //     console.log('Get Best Name: ' + res.name);
+        // })
 
 
         //     friends.push(bestData);
@@ -225,7 +240,7 @@ module.exports = function (app) {
 
     });
 
-    
+
 
     // console.log('Json stringify: ' + bestData)
 
@@ -252,10 +267,10 @@ module.exports = function (app) {
     //     console.log('best Data Api: ' + data);
     // });
 
-    app.get('/api/JsonBestData', function (req, res) {
-        res.json(JsonBestData);
-        console.log('success json2 is updated!');
-    });
+    // app.get('/api/JsonBestData', function (req, res) {
+    //     res.json(JsonBestData);
+    //     console.log('success json2 is updated!');
+    // });
 
     app.post('/api/JsonBestData', function (req, res) {
 
@@ -273,4 +288,30 @@ module.exports = function (app) {
     });
 
     // return JSON.stringify(JsonBestData);
+    // console.log('Outside edge of app ' + JsonBestData);
 }
+
+// function Best (data) {
+//     data.post('/api/JsonBestData', function (req, res) {
+
+//         // return JSON.stringify(JsonBestData);
+    
+//         // res.json(req.body)
+    
+//         // console.log('best Data Api2: ' + res);
+//         // console.log('api called');
+//         // console.log('done with post call b: ');
+    
+//         // console.log('Best Data: ' + bestData);
+//         console.log('Outside edge of app ' + JsonBestData);
+    
+//     });
+// }
+
+
+
+
+// module.exports = {
+// app,
+// data
+//   }

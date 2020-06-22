@@ -292,9 +292,15 @@
 
                 });
 
+
+
                 $.post('/api/JsonBestData', function (res) {
 
                     return JSON.stringify(JsonBestData);
+
+                    // res.json(JsonBestData);
+
+                    // return JSON.stringify(JsonBestData);
 
                     // console.log('name and img: ' + res.name + ", " + res.photo);
 
@@ -306,8 +312,24 @@
                     // });
 
                     // console.log('Best Data: ' + bestMatch)
+                    // $.get('/api/JsonBestData', function (req, res) {
+
+                    //     // return JSON.stringify(JsonBestData);
+
+                    //     res.json(JsonBestData);
+
+                    //     // return JSON.stringify(JsonBestData);
+
+                    // });
                 });
 
+                // var bestSent = require(bestData)
+
+                // console.log('require bestSent: ' + bestSent);
+
+                // app.use(bestData)
+
+                // console.log('use best data on survey : ' + bestData);
 
                 // $.post("/api/friends", bestData, function (data) {
                 //     $("#match-name").text(data.name);
