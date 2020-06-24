@@ -12,9 +12,9 @@ var friendsA = require("../data/friends");
 var friendsB = require("../data/friends2");
 var friendsC = require("../data/friends3");
 
-var display = require("../data/display");
-var displayB = require("../data/displayB");
-var displayC = require("../data/displayC");
+// var display = require("../data/display");
+// var displayB = require("../data/displayB");
+// var displayC = require("../data/displayC");
 
 // ===============================================================================
 // ROUTING
@@ -70,105 +70,115 @@ module.exports = function (app) {
 
     app.post("/api/friendsA", function (req, res) {
 
+        res.json(friendsA);
+
         // var currentA = [];
         
 
-        for (var p = 0; p < friendsA.length; p++) {
+    //     for (var p = 0; p < friendsA.length; p++) {
 
-            var currentFriendA = friendsA[p];
-            idA = currentFriendA.id;
-            nameA = currentFriendA.name;
-            photoA = currentFriendA.photo;
+    //         var currentFriendA = friendsA[p];
+    //         idA = currentFriendA.id;
+    //         nameA = currentFriendA.name;
+    //         photoA = currentFriendA.photo;
 
-            console.log('A id: ', idA);
-            console.log('A name: ', nameA);
-            console.log('A photo: ', photoA);
+    //         console.log('A id: ', idA);
+    //         console.log('A name: ', nameA);
+    //         console.log('A photo: ', photoA);
 
-       // res.json(id);
-        // res.json(name);
-        // res.json(photo);
+    //    // res.json(id);
+    //     // res.json(name);
+    //     // res.json(photo);
 
-        display.push(idA);
-        display.push(nameA);
-        display.push(photoA);
+    //     display.push(idA);
+    //     display.push(nameA);
+    //     display.push(photoA);
 
 
-        }
+        // }
 
         // console.log('current C: ', currentC);
 
-        res.json(display);
+        // req.json(display);
 
-        console.log('display: ', display)
+       
+
+        // console.log('display: ', display)
 
      });
 
     app.post("/api/friendsB", function (req, res) { 
 
+        res.json(friendsB);
+
         // var currentB = [];
         
-        for (var q = 0; q < friendsB.length; q++) {
+        // for (var q = 0; q < friendsB.length; q++) {
 
-            var currentFriendB = friendsB[q];
-            idB = currentFriendB.id;
-            nameB = currentFriendB.name;
-            photoB = currentFriendB.photo;
+        //     var currentFriendB = friendsB[q];
+        //     idB = currentFriendB.id;
+        //     nameB = currentFriendB.name;
+        //     photoB = currentFriendB.photo;
 
-            console.log('B id: ', idB);
-            console.log('B name: ', nameB);
-            console.log('B photo: ', photoB);
+        //     console.log('B id: ', idB);
+        //     console.log('B name: ', nameB);
+        //     console.log('B photo: ', photoB);
 
         // res.json(id);
         // res.json(name);
         // res.json(photo);
 
-        displayB.push(idB);
-        displayB.push(nameB);
-        displayB.push(photoB);
+        // displayB.push(idB);
+        // displayB.push(nameB);
+        // displayB.push(photoB);
 
 
-        }
+        // }
 
         // console.log('current C: ', currentC);
 
-        res.json(displayB);
+        // res.json(displayB);
 
-        console.log('displayB: ', displayB)
+        // console.log('displayB: ', displayB)
 
-
+        
 
     });
 
     app.post("/api/friendsC", function (req, res) {
 
+        res.json(friendsC);
+
         // var currentC = [];
 
-        for (var r = 0; r < friendsC.length; r++) {
-            var currentFriendC = friendsC[r];
-            idC = currentFriendC.id;
-            nameC = currentFriendC.name;
-            photoC = currentFriendC.photo;
+        // for (var r = 0; r < friendsC.length; r++) {
+        //     var currentFriendC = friendsC[r];
+        //     idC = currentFriendC.id;
+        //     nameC = currentFriendC.name;
+        //     photoC = currentFriendC.photo;
 
-            console.log('C id: ', idC);
-            console.log('C name: ', nameC);
-            console.log('C photo: ', photoC);
+        //     console.log('C id: ', idC);
+        //     console.log('C name: ', nameC);
+        //     console.log('C photo: ', photoC);
 
         // res.json(id);
         // res.json(name);
         // res.json(photo);
 
-        displayC.push(idC);
-        displayC.push(nameC);
-        displayC.push(photoC);
+        // displayC.push(idC);
+        // displayC.push(nameC);
+        // displayC.push(photoC);
 
 
-        }
+        // }
 
         // console.log('current C: ', currentC);
 
-        res.json(displayC);
+        // res.json(displayC);
 
-        console.log('display: ', displayC)
+        // console.log('display: ', displayC)
+
+       
 
      });
 
