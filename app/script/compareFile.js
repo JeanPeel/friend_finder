@@ -5,15 +5,99 @@ let userData = require("../script/userFile");
 
 let bestData = require("../script/bestFile");
 
+let apiExport = require('../routing/apiRoutes')
+
+// let list = require('./list.js');
+
 function Compare () {
 
     console.log('Compare Function Called');
+
+ 
+    // exportUser= [];
+    // require(list);
+
+    // require.list = function exportUser (req, res) {
+        // res.require(newUser);
+        // res.require(userScore);
+    //     res.require(NewUser);
+    //     res.require(UserScore);
+    // }
+
+
+        // console.log('list: ', list);
+
+        // console.log('export user: ', exportUser);
+
+        // console.log('newUser: ', newUser);
+
+        // console.log('userScore: ', userScore);
+        // console.log('NewUser: ', NewUser);
+        // console.log('UserScore: ', UserScore);
+
+    // import.list = function exportUser (req, res) {
+    //     res.render('newUser', {title: 'NewUser', newUser: newUser});
+    //     res.render('userScore', {title: 'UserScore', newUser: userScore});
+    // }
     
     // console.log('friends data: ', friendsData);
 
     // console.log('BF Data: ', bfData);
 
+    // return apiExport.app.exportUser ();
 
+    // console.log('data: ', data);
+
+
+    // exports.load = function exportUser  (req, res, next){
+    //     var id = req.params.id;
+
+    //     console.log('The iD is: ', id);
+
+    //     exportUser
+
+    //     // user = [];
+    //     req.user = newUser[id];
+    //     if (newUser[id]) {
+    //       next();
+    //     } else {
+    //       var err = new Error('cannot find user ' + id);
+    //       err.status = 404;
+    //       next(err);
+    //     }
+
+    //     req.score = userScore[id];
+    //     if (userScore[id]) {
+    //       next();
+    //     } else {
+    //       var err = new Error('cannot find user ' + id);
+    //       err.status = 404;
+    //       next(err);
+    //     }
+
+    //           console.log('The New User is: ', newUser);
+
+    //     console.log('The New User is: ', NewUser);
+
+    //     console.log('The User is: ', user);
+
+
+    //     console.log('The User Score is: ', score);
+
+    //     console.log('The User Score is: ', userScore);
+
+    //     console.log('The User Score is: ', UserScore);
+
+
+    //   };
+
+    //   console.log('The New User is: ', newUser);
+
+        // console.log('The New User is: ', NewUser);
+
+        // console.log('The User Score is: ', UserScore);
+
+    //   console.log('The User is: ', user);
 
     var k;
 
