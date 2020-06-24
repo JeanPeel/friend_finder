@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>FriendFinder</title>
+    <meta charset="UTF-8">
+    <title>FriendFinder</title>
 
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-  <!-- Chosen -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+    <!-- Chosen -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 
 </head>
 
@@ -167,7 +167,17 @@
                     <!-- How do we get a picture to show up for the person they matched with? -->
                     <img id="match-img"
                         src="https://vignette.wikia.nocookie.net/avatar/images/2/2f/Cabbage_merchant.png/revision/latest?cb=20140112200908"
-                        alt="">
+                        alt="" width='400px'>
+                    <h2 id="match-name2">Cabbage Merchant</h2>
+                    <!-- How do we get a picture to show up for the person they matched with? -->
+                    <img id="match-img2"
+                        src="https://vignette.wikia.nocookie.net/avatar/images/2/2f/Cabbage_merchant.png/revision/latest?cb=20140112200908"
+                        alt="" width='400px'>
+                    <h2 id="match-name3">Cabbage Merchant</h2>
+                    <!-- How do we get a picture to show up for the person they matched with? -->
+                    <img id="match-img3"
+                        src="https://vignette.wikia.nocookie.net/avatar/images/2/2f/Cabbage_merchant.png/revision/latest?cb=20140112200908"
+                        alt="" width='400px'>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -180,90 +190,113 @@
     <script type="text/javascript">
         // Chosen CSS
         var config = {
-          ".chosen-select": {},
-          ".chosen-select-deselect": {
-            allow_single_deselect: true
-          },
-          ".chosen-select-no-single": {
-            disable_search_threshold: 10
-          },
-          ".chosen-select-no-results": {
-            no_results_text: "Oops, nothing found!"
-          },
-          ".chosen-select-width": {
-            width: "95%"
-          }
+            ".chosen-select": {},
+            ".chosen-select-deselect": {
+                allow_single_deselect: true
+            },
+            ".chosen-select-no-single": {
+                disable_search_threshold: 10
+            },
+            ".chosen-select-no-results": {
+                no_results_text: "Oops, nothing found!"
+            },
+            ".chosen-select-width": {
+                width: "95%"
+            }
         };
-    
-        for (var selector in config) {
-          $(selector).chosen(config[selector]);
-        }
-    
-        // Capture the form inputs
-        $("#submit").on("click", function(event) {
-          event.preventDefault();
-    
-          // Form validation
-          function validateForm() {
-            var isValid = true;
-            $(".form-control").each(function() {
-              if ($(this).val() === "") {
-                isValid = false;
-              }
-            });
-    
-            $(".chosen-select").each(function() {
-    
-              if ($(this).val() === "") {
-                isValid = false;
-              }
-            });
-            return isValid;
-          }
-    
-          // If all required fields are filled
-          if (validateForm()) {
-            // Create an object for the user"s data
-            var userData = {
-              name: $("#name").val(),
-              photo: $("#photo").val(),
-              scores: [
-                $("#q1").val(),
-                $("#q2").val(),
-                $("#q3").val(),
-                $("#q4").val(),
-                $("#q5").val(),
-                $("#q6").val(),
-                $("#q7").val(),
-                $("#q8").val(),
-                $("#q9").val(),
-                $("#q10").val()
-              ]
-            };
-    
-            // AJAX post the data to the friends API.
-            $.post("/api/friends", userData, function(data) {
-    
-              // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-              $("#match-name").text(data.name);
-              $("#match-img").attr("src", data.photo);
-    
-              // Show the modal with the best match
-              $("#results-modal").modal("toggle");
-    
-            });
-          } else {
-            alert("Please fill out all fields before submitting!");
-          }
-        });
-      </script>
 
-<footer class="footer">
-    <div class="container">
-      <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/JeanPeel/friend_finder">GitHub Repo</a></p>
-    </div>
-  </footer>
-    
-    </body>
-    
-    </html>
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+
+        // Capture the form inputs
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+
+            // Form validation
+            function validateForm() {
+                var isValid = true;
+                $(".form-control").each(function () {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+
+                $(".chosen-select").each(function () {
+
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                return isValid;
+            }
+
+            // If all required fields are filled
+            if (validateForm()) {
+                // Create an object for the user"s data
+                var userData = {
+                    name: $("#name").val(),
+                    photo: $("#photo").val(),
+                    scores: [
+                        $("#q1").val(),
+                        $("#q2").val(),
+                        $("#q3").val(),
+                        $("#q4").val(),
+                        $("#q5").val(),
+                        $("#q6").val(),
+                        $("#q7").val(),
+                        $("#q8").val(),
+                        $("#q9").val(),
+                        $("#q10").val()
+                    ]
+                };
+
+                // AJAX post the data to the friends API.
+                $.post("/api/friends", userData, function (data) {
+
+                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                    $("#match-name").text(data.name);
+                    $("#match-img").attr("src", data.photo);
+
+                    // Show the modal with the best match
+                    $("#results-modal").modal("toggle");
+
+                });
+                $.post("/api/friends2", userData, function (data) {
+
+                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                    $("#match-name2").text(data.name);
+                    $("#match-img2").attr("src", data.photo);
+
+                    // Show the modal with the best match
+                    $("#results-modal").modal("toggle");
+
+                });
+                $.post("/api/friends3", userData, function (data) {
+
+                    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                    $("#match-name3").text(data.name);
+                    $("#match-img3").attr("src", data.photo);
+
+                    // Show the modal with the best match
+                    $("#results-modal").modal("toggle");
+
+                });
+            } else {
+                alert("Please fill out all fields before submitting!");
+            }
+        });
+
+
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <p><a href="/api/friends">API Friends List</a> | <a href="/api/friends2">API Friends 2 List</a> | <a href="/api/friends3">API Friends 3 List</a> | <a href="https://github.com/JeanPeel/friend_finder">GitHub
+                    Repo</a></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
