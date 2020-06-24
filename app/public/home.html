@@ -3,29 +3,39 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FriendFinder</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href='style.css'>
-    <title>Friend Finder</title>
+
+    <!-- Font Awesome Glyphicons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
 </head>
 
 <body>
-    <div class='main_div'>
-        <div class="container">
-            <div class="jumbotron" style="background-image: url('../images/avatarLastAirbender1.png');">
-                <!-- <img class="jumbo_img"
-                src="../images/avatar.png"
-                alt='avatar last airbender photo'> -->
-                <h1>Avatar the Last Airbender Characters</h1>
-                <h3>Answer a few questions <br> see which avatar characters you are most like.</h3>
-                <hr>
-                <a href="./survey.html"><button class="btn btn-large btn-primary"><span class="fa fa-list-alt"></span>Go
-                        to
-                        the Survey</button></a>
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1><i class="fa fa-facebook-square" aria-hidden="true"></i> Friend Finder</h1>
+            <hr>
+            <h1>Avatar the Last Airbender Characters</h1>
+            <h3>Answer a few questions <br> see which avatar characters you are most like.</h3>
+            <br>
+
+            <div>
+                <a href="/survey"><button class="btn btn-large btn-primary">
+                        <h4><span class="fa fa-list-alt">
+
+                            </span> Go to Survey
+                        </h4>
+                    </button>
+                </a>
             </div>
+
         </div>
         <div class='characters'>
             <div class='rows'>
@@ -240,6 +250,14 @@
 
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="container">
+          <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/JeanPeel/friend_finder">GitHub Repo</a></p>
+        </div>
+      </footer>
+
+
     </div>
 </body>
 
