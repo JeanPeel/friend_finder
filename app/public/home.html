@@ -40,22 +40,34 @@
 
         <div class='characters'>
             <div class='rows'>
-                <div id='zero'></div>
+                <div id='zeroA' class='character'></div>
+                <div id='zeroB' class='character'></div>
+                <div id='zeroC' class='character'></div>
             </div>
             <div class='rows'>
-                <div id='1'></div>
+                <div id='oneA' class='character'></div>
+                <div id='oneB' class='character'></div>
+                <div id='oneC' class='character'></div>
             </div>
             <div class='rows'>
-                <div id='2'></div>
+                <div id='twoA' class='character'></div>
+                <div id='twoB' class='character'></div>
+                <div id='twoC' class='character'></div>
             </div>
             <div class='rows'>
-                <div id='3'></div>
+                <div id='threeA' class='character'></div>
+                <div id='threeB' class='character'></div>
+                <div id='threeC' class='character'></div>
             </div>
             <div class='rows'>
-                <div id='4'></div>
+                <div id='fourA' class='character'></div>
+                <div id='fourB' class='character'></div>
+                <div id='fourC' class='character'></div>
             </div>
             <div class='rows'>
-                <div id='5'></div>
+                <div id='fiveA' class='character'></div>
+                <div id='fiveB' class='character'></div>
+                <div id='fiveC' class='character'></div>
             </div>
         </div>
     </div>
@@ -71,95 +83,135 @@
             $.post("/api/friendsA", function (data) {
                 console.log('post ran')
 
-                var currentDataX = [];
+                // for (var i = 0; i < data.length; i++) {
+                for (var s = 0; s < data.length; s++) {
+                    console.log('for loop ran')
+                    var currentDataX = data[s];
 
-                function insertData() {
+                    // console.log('current data x: ', currentDataX);
 
-                    console.log('innerdata ran');
+                    if (currentDataX.id === 0) {
+                        console.log('if condition ran')
 
+                        console.log('current data id in if: ', currentDataX.id);
 
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                            
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                        
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
 
+                        $("#zeroA").html( insertHtml);
 
-                    function insertLink() {
-
-                        console.log('insert link ran')
-
-                        function image() {
-
-                            console.log('photo data in insert link: ', currentDataX.photo)
-                            console.log('name data in insert link: ', currentDataX.name)
-                            var img = $('<img/>');
-                            img.class = "match-imgs"
-                            img.src = currentDataX.photo
-                            img.alt = currentDataX.name
-                            // return image;
-                            console.log('image ran')
-                        }
-
-                        // image();
-
-                        function makeLink() {
-                            var link = $('<a/>');
-                            link.href = 'https://avatar.fandom.com/wiki/';
-                            link.target = "_blank"
-                            // return link;
-                            console.log('make link ran')
-                        }
-
-                        // makelink();
-
-                        $(image).wrap(makeLink)
-
-                        console.log('insert link done')
-
+                         console.log('end of insert html')
 
                     }
 
-                    insertLink()
+                    if (currentDataX.id === 1) {
+                        console.log('if condition ran')
 
+                        console.log('current data id in if: ', currentDataX.id);
 
-                    function insertLink2() {
-                        console.log('link 2 ran')
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                  
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                     
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
 
-                        function header() {
+                        $("#oneA").html( insertHtml);
 
-                            console.log('header ran ran')
+                         console.log('end of insert html')
 
-                            displayName = currentDataX.name
-
-                            console.log('display name in insert link: ', currentDataX.name)
-
-                            function displayH2() {
-                                var h2 = $('<h2/>');
-                                // return h2;
-                            }
-
-                            $(displayName).wrap(displayH2)
-                            console.log('header ran')
-                        }
-
-                        function makeLink2() {
-                            var link = $('<a/>');
-                            link.href = 'https://avatar.fandom.com/wiki/';
-                            link.target = "_blank"
-                            // return link;
-                            console.log('make link ran')
-                        }
-
-                        $(header).wrap(makeLink2)
-
-                        // return insertLink2;
                     }
 
-                    insertLink2()
+                    if (currentDataX.id === 2) {
+                        console.log('if condition ran')
 
+                        console.log('current data id in if: ', currentDataX.id);
+
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                     
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                          
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                        $("#twoA").html( insertHtml);
+
+                         console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 3) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                      
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                             
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                        $("#threeA").html( insertHtml);
+
+                         console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 4) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                            
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                             
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                        $("#fourA").html( insertHtml);
+
+                         console.log('end of insert html')
+
+                    }
+                    
+                    if (currentDataX.id === 5) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                            
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                    
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                        $("#fiveA").html( insertHtml);
+
+                         console.log('end of insert html')
+
+                    }
                 }
 
-                // document.getElementById('zero').innerHTML += (insertData);
+            console.log('end of post A')
 
-                // insertData();
+            });
+        });
 
-            
+        $.post("/api/friendsB", function (data) {
+                console.log('post ran')
 
                 // for (var i = 0; i < data.length; i++) {
                 for (var s = 0; s < data.length; s++) {
@@ -168,208 +220,255 @@
 
                     // console.log('current data x: ', currentDataX);
 
+                    if (currentDataX.id === 0) {
+                        console.log('if condition ran')
 
+                        console.log('current data id in if: ', currentDataX.id);
+
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                         
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                           
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                        $("#zeroB").html( insertHtml);
+
+                         console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 1) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                              
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                             
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                        $("#oneB").html( insertHtml);
+
+                         console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 2) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                           
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                        $("#twoB").html( insertHtml);
+
+                         console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 3) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                                
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                            
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                        $("#threeB").html( insertHtml);
+
+                         console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 4) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                            
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                              
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                        $("#fourB").html( insertHtml);
+
+                         console.log('end of insert html')
+
+                    }
+                    
+                    if (currentDataX.id === 5) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                               
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                              
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                        $("#fiveB").html( insertHtml);
+
+                         console.log('end of insert html')
+
+                    }
+                }
+
+            console.log('end of post A')
+
+            });
+
+
+
+        $.post("/api/friendsC", function (data) {
+                console.log('post ran')
+
+                // for (var i = 0; i < data.length; i++) {
+                for (var s = 0; s < data.length; s++) {
+                    console.log('for loop ran')
+                    var currentDataX = data[s];
+
+                    // console.log('current data x: ', currentDataX);
 
                     if (currentDataX.id === 0) {
                         console.log('if condition ran')
 
                         console.log('current data id in if: ', currentDataX.id);
 
-                        $(insertData).appendTo("#zero");
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                              
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                              
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
 
-                        // function addCode() {
-                        //     console.log('add code ran')
+                        $("#zeroC").html( insertHtml);
 
-                        //     document.getElementById('zero').innerHTML +=
-                        //         "<div class='match-imgs'>" + "<a href=" + "&apos;" + "https://avatar.fandom.com/wiki/" + currentDataX.name + "&apos;" + ">" +
-                        //         "<img src=" + "&apos;" + currentDataX.photo + + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                        //         "<br>" +
-                        //         "<a href=" + "&apos;" + "https://avatar.fandom.com/wiki/" + currentDataX.name + "&apos;" + ">" +
-                        //         "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>";
+                         console.log('end of insert html')
 
+                    }
 
-                        //     // return addCode;
-                        // }
+                    if (currentDataX.id === 1) {
+                        console.log('if condition ran')
 
-                        // addCode();
+                        console.log('current data id in if: ', currentDataX.id);
 
-                        // function dataImage() {
-                        //         console.log(' data image function ran')
-                        //         var insertImg = document.createElement('img')
-                        //         insertImg.class = "match-imgs"
-                        //         insertImg.src = currentDataX.photo
-                        //         insertImg.alt = currentDataX.name  
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                            
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                        
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
 
-                        //     }
+                        $("#oneC").html( insertHtml);
 
-                        // return dataImage;
+                         console.log('end of insert html')
 
-                        // console.log('data Image: ', dataImage)
+                    }
 
-                        // insertData = [];
+                    if (currentDataX.id === 2) {
+                        console.log('if condition ran')
 
-                        // console.log('insertData ',)
+                        console.log('current data id in if: ', currentDataX.id);
 
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                         
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                         
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
 
+                        $("#twoC").html( insertHtml);
 
+                         console.log('end of insert html')
 
-                        // function insertData() {
+                    }
 
-                        //     console.log('innerdata ran');
+                    if (currentDataX.id === 3) {
+                        console.log('if condition ran')
 
+                        console.log('current data id in if: ', currentDataX.id);
 
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                        
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                            
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
 
+                        $("#threeC").html( insertHtml);
 
-                        //     function insertLink() {
+                         console.log('end of insert html')
 
-                        //         console.log('insert link ran')
+                    }
 
-                        //         function image() {
+                    if (currentDataX.id === 4) {
+                        console.log('if condition ran')
 
-                        //             console.log('photo data in insert link: ', currentDataX.photo)
-                        //             console.log('name data in insert link: ', currentDataX.name)
-                        //             var img = $('<img/>');
-                        //             img.class = "match-imgs"
-                        //             img.src = currentDataX.photo
-                        //             img.alt = currentDataX.name
-                        //             // return image;
-                        //             console.log('image ran')
-                        //         }
+                        console.log('current data id in if: ', currentDataX.id);
 
-                        //         // image();
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                              
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                            
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
 
-                        //         function makeLink() {
-                        //             var link = $('<a/>');
-                        //             link.href = 'https://avatar.fandom.com/wiki/';
-                        //             link.target = "_blank"
-                        //             // return link;
-                        //             console.log('make link ran')
-                        //         }
+                        $("#fourC").html( insertHtml);
 
-                        //         // makelink();
+                         console.log('end of insert html')
 
-                        //         $(image).wrap(makeLink)
+                    }
+                    
+                    if (currentDataX.id === 5) {
+                        console.log('if condition ran')
 
-                        //         console.log('insert link done')
+                        console.log('current data id in if: ', currentDataX.id);
 
+                            insertHtml = (
+                                "<div class='match-imgs'>" +
+                              
+                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                "<br>" +
+                             
+                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
 
-                        //     }
+                        $("#fiveC").html( insertHtml);
 
-                        //     insertLink()
-
-
-                        //     function insertLink2() {
-                        //         console.log('link 2 ran')
-
-                        //         function header() {
-
-                        //             console.log('header ran ran')
-
-                        //             displayName = currentDataX.name
-
-                        //             console.log('display name in insert link: ', currentDataX.name)
-
-                        //             function displayH2() {
-                        //                 var h2 = $('<h2/>');
-                        //                 // return h2;
-                        //             }
-
-                        //             $(displayName).wrap(displayH2)
-                        //             console.log('header ran')
-                        //         }
-
-                        //         function makeLink() {
-                        //             var link = $('<a/>');
-                        //             link.href = 'https://avatar.fandom.com/wiki/';
-                        //             link.target = "_blank"
-                        //             // return link;
-                        //             console.log('make link ran')
-                        //         }
-
-                        //         $(header).wrap(makeLink2)
-
-                        //         // return insertLink2;
-                        //     }
-
-                        //     insertLink2()
-
-                        // }
-
-                        // document.getElementById('zero').innerHTML += (insertData);
-
-                        // insertData();
-
-                        // $(insertData).appendTo("#zero");
-
-                        console.log('end of insert html')
-                        // }
-                        // if (currentDataX.id === 1) {
-                        //     $("#1")
-                        // }
-                        // if (currentDataX.id === 2) {
-                        //     $("#2")
-                        // }
-                        // if (currentDataX.id === 3) {
-                        //     $("#3")
-                        // }
-                        // if (currentDataX.id === 4) {
-                        //     $("#4")
-                        // }
-                        // if (currentDataX.id === 5) {
-                        //     $("#5")
-                        // }
-                        // console.log('api data id: ', currentDataA.id);
-                        // console.log('api data name: ', currentDataA.name);
-                        // console.log('api data photo: ', currentDataA.photo);
-                        // }
-                        // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                        // $("#match-name").text(data.name);
-                        // $("#match-img").attr("src", data.photo);
-
-                        // Show the modal with the best match
-                        // $("#results-modal").modal("toggle");
+                         console.log('end of insert html')
 
                     }
                 }
 
-                console.log('end of post A')
+            console.log('end of post A')
 
             });
-
-            $.post("/api/friendsB", function (data) {
-                for (var t = 0; t < data.length; t++) {
-                    var currentDataY = data[t];
-                    // console.log('api data id: ', currentDataB.id);
-                    // console.log('api data name: ', currentDataB.name);
-                    // console.log('api data photo: ', currentDataB.photo);
-                }
-                // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                // $("#match-name2").text(data.name);
-                // $("#match-img2").attr("src", data.photo);
-
-                // Show the modal with the best match
-                // $("#results-modal").modal("toggle");
-
-            });
-            $.post("/api/friendsC", function (data) {
-
-
-                for (var u = 0; u < data.length; u++) {
-                    var currentDataZ = data[u];
-                    // console.log('api data id: ', currentDataC.id);
-                    // console.log('api data name: ', currentDataC.name);
-                    // console.log('api data photo: ', currentDataC.photo);
-                }
-                // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                // $("#match-name3").text(data.name);
-                // $("#match-img3").attr("src", data.photo);
-
-                // Show the modal with the best match
-                // $("#results-modal").modal("toggle");
-
-            });
-
-        });
+   
 
 
     </script>

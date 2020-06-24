@@ -87,7 +87,7 @@ var friends = [
     {
         'id': 5,
         "name": "Lion turtle",
-        "photo": "https://i.pinimg.com/564x/29/50/d3/2950d359da8233934b31ae21152f6249.jpg",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/6/60/Lion_turtle_drawing.png/revision/latest?cb=20140404203809",
         "scores": [
             6,
             6,
