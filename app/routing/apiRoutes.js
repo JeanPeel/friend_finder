@@ -1,358 +1,231 @@
-let friendsData = require("../data/friends");
-let bfData = require("../data/bestFriends");
-
-let newUser = require("../script/userFile");
-
-let friendsScores = require("../script/compareFile");
-
-let bestData = require("../script/bestFile");
-
-
-
-// const { response } = require("express");
-// const friends = require("../data/friends");
-// var express = require('express')
-// var router = express.Router()
+var friendsData = require("../data/friends");
+const { response } = require("express");
+const friends = require("../data/friends");
 
 module.exports = function (app) {
-
-    // res.json(req.body);
-
     app.get("/api/friends", function (req, res) {
         res.json(friendsData);
     });
 
-    app.get("/api/body", function (req, res) {
-        res.json(req.body);
-    });
+    bestData = [];
 
-    app.get("/api/bfData", function (req, res) {
-        res.json(bfData);
-    });
-
-    // _______________________________________________________
-    // _______________________________________________________
+    JsonBestData = [];
 
     app.post("/api/friends", function (req, res) {
 
-        // console.log(compareData.friendsScores);
-
-        // var friendsScores = alert(compareData.friendsScores);
-
-        console.log('newUser: ', newUser);
-
-        console.log('newUser NewUser: ', newUser.newUser);
-
-        // working
-        // console.log('friends data: ', friendsData);
-
-        console.log('bestData: ', bestData);
-
-        console.log('friendsScores: ', friendsScores);
-
-
-
-        console.log('BF Data: ', bfData);
-
-        return bestData ();
-
-        // const uData = userData;
-        // FUNCTION
-        // console.log('UData: ', uData);
-
-        // uData ();
-
-        // const uData = userData.User;
-        //  FUNCTION
-        // console.log('UData: ', uData);
-
-        // uData ();
-
-        // const compare = compareData.Compare;
-        // FUNCTION
-        // console.log('Compare Data: ', compare);
-
-        // compare ();
-
-        // const best = bestData.Best;
-        // FUNCTION
-        // console.log('Compare Data: ', best);
-
-        // best ();
-
-
-        // var i;
-
-        //Outer loop to access individual friends
-        // for (i = 0; i < friendsData.length; i++) {
-
-        // console.log('Friends Data for loop ran')
-        // this logs out the information in friends Data
-        // console.log(friendsData[i])
-
-        //Inner loop to access friends' scores
-        //  friendsData[i];
-        //  friendsData[i].scores
-        //   var totalScore = 0;
-        //     for (j = 0; j < friendsData[i].scores.length; j++) {
-        //        totalScore += friendsData[i].scores[j] = req.body.scores[j]
-        //     }
-
-        // console.log('Total Score: ', totalScore)
-        // };
-
-        // console.log('Total Score: ', totalScore)
-    });
-
-    app.post("/api/body", function (req, res) {
-        console.log('Body: ' + res.body);
-    });
-
-    app.post("/api/bfData", function (req, res) {
-
-
-        console.log('BF Data: ' + bfData);
-
-    });
-
-
-}
-
-
-    // bestData = [];
-
-    // JsonBestData = [];
-
-    // app.post("/api/friends", function (req, res) {
-
-
-
         // bring in the form data
-        // res.json(req.body);
+        res.json(req.body);
 
-        // // set up to calculate the score
-        // var scoreArray = [];
+        // set up to calculate the score
+        var scoreArray = [];
 
-        // // bring in the score value
-        // score = req.body.scores;
+        // bring in the score value
+        score = req.body.scores;
 
-        // // putting score values in an array
-        // for (s = 0; s < score.length; s++) {
+        // putting score values in an array
+        for (s = 0; s < score.length; s++) {
 
-        //     scoreArray.push(Number(score[s]));
-        // };
+            scoreArray.push(Number(score[s]));
+        };
 
-        // // console.log('score array ' + scoreArray);
+        // console.log('score array ' + scoreArray);
 
-        // // putting score array into new User
-        // var newUser = {
-        //     id: req.body.id,
-        //     name: req.body.name,
-        //     photo: req.body.photo,
-        //     scores: scoreArray
-        // };
+        // putting score array into new User
+        var newUser = {
+            id: req.body.id,
+            name: req.body.name,
+            photo: req.body.photo,
+            scores: scoreArray
+        };
 
-        // // console.log('scores in newUser object: ' + newUser.scores);
-        // console.log(' ');
-        // console.log('-----------------------------------------------')
-        // console.log('User id: ' + newUser.id);
-        // console.log('User name: ' + newUser.name);
-        // console.log('User photo: ' + newUser.photo);
-        // console.log('User scores: ' + newUser.scores);
-        // console.log('-----------------------------------------------')
+        // console.log('scores in newUser object: ' + newUser.scores);
+        console.log(' ');
+        console.log('-----------------------------------------------')
+        console.log('User id: ' + newUser.id);
+        console.log('User name: ' + newUser.name);
+        console.log('User photo: ' + newUser.photo);
+        console.log('User scores: ' + newUser.scores);
+        console.log('-----------------------------------------------')
 
-        // // console.log('New  Friend: ' + newUser);
-
-
-        // var i;
-
-        // // Adding up the New Users Score
-        // var userScore = 0;
-        // for (i = 0; i < newUser.scores.length; i++) {
-        //     userScore += newUser.scores[i]
-        // };
+        // console.log('New  Friend: ' + newUser);
 
 
+        var i;
 
-        // console.log('User Total Score: ' + userScore);
+        // Adding up the New Users Score
+        var userScore = 0;
+        for (i = 0; i < newUser.scores.length; i++) {
+            userScore += newUser.scores[i]
+        };
+
+
+
+        console.log('User Total Score: ' + userScore);
 
 
 
         // Adding up the friends scores
 
-        // var k;
+        var k;
 
-        // var friendsScores = [];
+        var friendsScores = [];
 
-        // //Outer loop to access individual friends
-        // for (k = 0; k < friendsData.length; k++) {
+        //Outer loop to access individual friends
+        for (k = 0; k < friendsData.length; k++) {
 
-        //     // Inner loop accesses the score 
-        //     var totalScore2 = 0;
-        //     for (l = 0; l < friendsData[k].scores.length; l++) {
+            // Inner loop accesses the score 
+            var totalScore2 = 0;
+            for (l = 0; l < friendsData[k].scores.length; l++) {
 
-        //         // calculate the score
-        //         totalScore2 += friendsData[k].scores[l]
-
-
-        //     };
+                // calculate the score
+                totalScore2 += friendsData[k].scores[l]
 
 
-        //     console.log('Friends Total Score: ' + totalScore2)
-
-        //     // calculate absolute value of compared score which is friends score - userscore
-        //     compareScore = Math.abs(totalScore2 - userScore)
-
-        //     // pushes compare score into friends score array
-        //     friendsScores.push(compareScore);
-
-        //     // console.log('compare score: ' + compareScore);
-
-        // };
-
-        // console.log('Users, Friends Difference: ' + friendsScores);
-
-        // var bestMatch = 0;
-
-        // // m is increasing in value each round with m++, so  using m gives us a unique # for each item
-        // for (m = 0; m < friendsScores.length; m++) {
-
-        //     // if the current friends score is less then or equal to the past friend score then it is a match
-        //     if (friendsScores[m] <= friendsScores[bestMatch]) {
-        //         // then best match is equal to m, which has increased by 1 each time, so m tells us which number is a match
-        //         bestMatch = m
-        //     }
-
-        //     // console.log('Compared Scores M: ' + friendsScores[m]);
+            };
 
 
-        //     // console.log('Best Match: Friend #' + bestMatch);
+            console.log('Friends Total Score: ' + totalScore2)
 
-        // };
+            // calculate absolute value of compared score which is friends score - userscore
+            compareScore = Math.abs(totalScore2 - userScore)
 
-        // var bestMatch = [];
+            // pushes compare score into friends score array
+            friendsScores.push(compareScore);
 
-        // var bestPhoto = [];
-        // var bestName = [];
+            // console.log('compare score: ' + compareScore);
+
+        };
+
+        console.log('Users, Friends Difference: ' + friendsScores);
+
+        var bestMatch = 0;
+
+        // m is increasing in value each round with m++, so  using m gives us a unique # for each item
+        for (m = 0; m < friendsScores.length; m++) {
+
+            // if the current friends score is less then or equal to the past friend score then it is a match
+            if (friendsScores[m] <= friendsScores[bestMatch]) {
+                // then best match is equal to m, which has increased by 1 each time, so m tells us which number is a match
+                bestMatch = m
+            }
+
+            // console.log('Compared Scores M: ' + friendsScores[m]);
 
 
-        // // console.log('best Match is read here 1' + bestMatch)
+            // console.log('Best Match: Friend #' + bestMatch);
 
-        // // looking for the friends Id that matches the best match #
+        };
 
-        // for (n = 0; n < friendsData.length; n++) {
+        var bestMatch = [];
 
-        //     // console.log('friends data ID' + friendsData[n].id)
+        var bestPhoto = [];
+        var bestName = [];
 
-        //     // matchedId = friendsData[n].id;
 
-        //     // console.log('matched ID: ' + matchedId)
+        // console.log('best Match is read here 1' + bestMatch)
 
-        //     // console.log('best Match is read here 2' + bestMatch)
+        // looking for the friends Id that matches the best match #
 
-        //     if (friendsData[n].id == bestMatch) {
+        for (n = 0; n < friendsData.length; n++) {
 
-        //         console.log('-----------------------------------------------')
-        //         console.log('Best Match Found!');
-        //         bestPhoto = friendsData[n].photo;
-        //         bestName = friendsData[n].name;
-        //         bestScores = friendsData[n].scores;
-        //     };
-        // };
+            // console.log('friends data ID' + friendsData[n].id)
 
-        // var bestData = {
-        //     id: 8,
-        //     name: bestName,
-        //     photo: bestPhoto,
-        //     scores: bestScores
-        // };
+            // matchedId = friendsData[n].id;
 
-        // //   res.json(bestData);
+            // console.log('matched ID: ' + matchedId)
 
-        // //   console.log('is json responding to best data?' + res.json(bestData))
+            // console.log('best Match is read here 2' + bestMatch)
 
-        // console.log('Matched Name: ' + bestData.name);
-        // console.log('Matched Photo: ' + bestData.photo);
-        // console.log('Matched Scores: ' + bestData.scores);
+            if (friendsData[n].id == bestMatch) {
+
+                console.log('-----------------------------------------------')
+                console.log('Best Match Found!');
+                bestPhoto = friendsData[n].photo;
+                bestName = friendsData[n].name;
+                bestScores = friendsData[n].scores;
+            };
+        };
+
+        var bestData = {
+            id: 8,
+            name: bestName,
+            photo: bestPhoto,
+            scores: bestScores
+        };
+
+        //   res.json(bestData);
+
+        //   console.log('is json responding to best data?' + res.json(bestData))
+
+        console.log('Matched Name: ' + bestData.name);
+        console.log('Matched Photo: ' + bestData.photo);
+        console.log('Matched Scores: ' + bestData.scores);
+        console.log('-----------------------------------------------')
+
+
+        // bestestFriendMatch = friendsData[bestData];
+
+
+
+
+
+
+        //     friends.push(bestData);
+
+        JsonBestData = JSON.stringify(bestData);
+
+        //     bestServer = new XMLHttpRequest();
+
+        // bestServer.send('send XML Json Best Data: ' + JsonBestData);
+
+
+
+        // bestServer = new bestServerRequest();
+
+        // bestServer.send('send Json Best Data: ' + JsonBestData);
+
+
+        // app.get('/api/JsonBestData', function (req, res) {
+        //     res.json(JsonBestData);
+        //     console.log('success json is updated!');
+        // });
+
+        // app.post('/api/JsonBestData', function (req, res) {
+
+        //     // res.json(req.body)
+
+        //     console.log('best Data Api: ' + res);
+        //     // console.log('api called');
+        //     // console.log('done with post call b: ');
+
+        //     // console.log('Best Data: ' + bestData);
+        //     console.log('Json Best Data: ' + JsonBestData);
+
+        // });
+
+        // console.log('done with post call a: ');
+
         // console.log('-----------------------------------------------')
+        console.log('Matched Data sent to .json: ' + JsonBestData);
+        console.log('-----------------------------------------------')
+
+        // app.get("/api/bestData", function (data) {
+        //     data.json(bestData);
+        //     console.log('done with get call b: ');
+        // });
 
 
-        // // bestestFriendMatch = friendsData[bestData];
+        // app.post("/api/bestData", function (data) {
+        //     console.log('best Data Api: ' + data);
+        //     console.log('api called');
+        //     console.log('done with post call b: ');
+        // });
 
-        // // middleware that is specific to this router
-        // // router.use(bestData, function(req, res) {
+        // console.log('done with post call a: ');
 
+    });
 
-        // //     console.log('Use Best Data: ' + bestData);
-        // //     console.log('Use Best Name: ' + res.name);
-
-        // // })
-        // // // define the home page route
-        // // router.get(bestData, function(req, res) {
-
-        // //     res.send(bestData);
-
-        // //     console.log('Get Best Data: ' + bestData);
-        // //     console.log('Get Best Name: ' + res.name);
-        // // })
-
-
-        // //     friends.push(bestData);
-
-        // JsonBestData = JSON.stringify(bestData);
-
-        // //     bestServer = new XMLHttpRequest();
-
-        // // bestServer.send('send XML Json Best Data: ' + JsonBestData);
-
-
-
-        // // bestServer = new bestServerRequest();
-
-        // // bestServer.send('send Json Best Data: ' + JsonBestData);
-
-
-        // // app.get('/api/JsonBestData', function (req, res) {
-        // //     res.json(JsonBestData);
-        // //     console.log('success json is updated!');
-        // // });
-
-        // // app.post('/api/JsonBestData', function (req, res) {
-
-        // //     // res.json(req.body)
-
-        // //     console.log('best Data Api: ' + res);
-        // //     // console.log('api called');
-        // //     // console.log('done with post call b: ');
-
-        // //     // console.log('Best Data: ' + bestData);
-        // //     console.log('Json Best Data: ' + JsonBestData);
-
-        // // });
-
-        // // console.log('done with post call a: ');
-
-        // // console.log('-----------------------------------------------')
-        // console.log('Matched Data sent to .json: ' + JsonBestData);
-        // console.log('-----------------------------------------------')
-
-        // // app.get("/api/bestData", function (data) {
-        // //     data.json(bestData);
-        // //     console.log('done with get call b: ');
-        // // });
-
-
-        // // app.post("/api/bestData", function (data) {
-        // //     console.log('best Data Api: ' + data);
-        // //     console.log('api called');
-        // //     console.log('done with post call b: ');
-        // // });
-
-        // // console.log('done with post call a: ');
-
-    // });
-
-
+    
 
     // console.log('Json stringify: ' + bestData)
 
@@ -379,51 +252,25 @@ module.exports = function (app) {
     //     console.log('best Data Api: ' + data);
     // });
 
-    // app.get('/api/JsonBestData', function (req, res) {
-    //     res.json(JsonBestData);
-    //     console.log('success json2 is updated!');
-    // });
+    app.get('/api/JsonBestData', function (req, res) {
+        res.json(JsonBestData);
+        console.log('success json2 is updated!');
+    });
 
-    // app.post('/api/JsonBestData', function (req, res) {
+    app.post('/api/JsonBestData', function (req, res) {
 
-    //     // return JSON.stringify(JsonBestData);
+        // return JSON.stringify(JsonBestData);
 
-    //     // res.json(req.body)
+        // res.json(req.body)
 
-    //     // console.log('best Data Api2: ' + res);
-    //     // console.log('api called');
-    //     // console.log('done with post call b: ');
+        // console.log('best Data Api2: ' + res);
+        // console.log('api called');
+        // console.log('done with post call b: ');
 
-    //     // console.log('Best Data: ' + bestData);
-    //     console.log('Json Best Data2: ' + JsonBestData);
+        // console.log('Best Data: ' + bestData);
+        console.log('Json Best Data2: ' + JsonBestData);
 
-    // });
+    });
 
     // return JSON.stringify(JsonBestData);
-    // console.log('Outside edge of app ' + JsonBestData);
-// }
-
-// function Best (data) {
-//     data.post('/api/JsonBestData', function (req, res) {
-
-//         // return JSON.stringify(JsonBestData);
-
-//         // res.json(req.body)
-
-//         // console.log('best Data Api2: ' + res);
-//         // console.log('api called');
-//         // console.log('done with post call b: ');
-
-//         // console.log('Best Data: ' + bestData);
-//         console.log('Outside edge of app ' + JsonBestData);
-
-//     });
-// }
-
-
-
-
-// module.exports = {
-// app,
-// data
-//   }
+}
