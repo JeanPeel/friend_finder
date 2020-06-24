@@ -13,20 +13,12 @@ function User () {
 
     // console.log('BF Data: ', bfData);
 
-    var compare = compareData.Compare;
-    // FUNCTION
-    // console.log('Compare Data: ', compare);
-
-    var best = bestData.Best;
-    // FUNCTION
-    // console.log('Compare Data: ', best);
-
 
 
     res.json(req.body);
 
     // set up to calculate the score
-    var scoreArray = [];
+     var scoreArray = [];
 
     // bring in the score value
     score = req.body.scores;
@@ -40,10 +32,14 @@ function User () {
     // console.log('score array ' + scoreArray);
 
     // putting score array into new User
-    var newUser = {
-        id: req.body.id,
-        name: req.body.name,
-        photo: req.body.photo,
+    var name = req.body.name;
+    var photo = req.body.photo;
+    var scores = scoreArray
+
+var newUser = {
+        id: 8,
+        name: name,
+        photo: photo,
         scores: scoreArray
     };
 
@@ -62,7 +58,7 @@ function User () {
     var i;
 
     // Adding up the New Users Score
-    var userScore = 0;
+     var userScore = 0;
     for (i = 0; i < newUser.scores.length; i++) {
         userScore += newUser.scores[i]
     };
@@ -72,6 +68,22 @@ function User () {
     console.log('User Total Score: ' + userScore);
 
 };
+
+var scoreArray = [];
+
+var name = [];
+var photo = [];
+// var scores = scoreArray;
+
+var newUser = {
+    id: 8,
+    name: name,
+    photo: photo,
+    scores: scoreArray
+};
+
+
+// var userScore = [];
 
 module.exports = {
 User

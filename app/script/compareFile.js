@@ -13,17 +13,11 @@ function Compare () {
 
     // console.log('BF Data: ', bfData);
 
-    var uData = userData.User;
-    //  FUNCTION
-    // console.log('UData: ', uData);
 
-    var best = bestData.Best;
-    // FUNCTION
-    // console.log('Compare Data: ', best);
 
     var k;
 
-    var friendsScores = [];
+var friendsScores = [];
 
     //Outer loop to access individual friends
     for (k = 0; k < friendsData.length; k++) {
@@ -51,9 +45,14 @@ function Compare () {
 
     };
 
+    
+
     console.log('Users, Friends Difference: ' + friendsScores);
 };
 
+var friendsScores = [];
+
 module.exports = {
 Compare
-  }
+  };
+

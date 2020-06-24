@@ -4,6 +4,7 @@ let friendsData = require("../data/friends");
 let userData = require("../script/userFile");
 
 let compareData = require("../script/compareFile");
+const bestFriends = require("../data/bestFriends");
 
 
 function Best () {
@@ -14,13 +15,7 @@ function Best () {
 
     // console.log('BF Data: ', bfData);
 
-    var uData = userData.User;
-    //  FUNCTION
-    // console.log('UData: ', uData);
 
-    var compare = compareData.Compare;
-    // FUNCTION
-    // console.log('Compare Data: ', compare);
 
     var bestMatch = 0;
 
@@ -42,8 +37,10 @@ function Best () {
 
     var bestMatch = [];
 
-    var bestPhoto = [];
-    var bestName = [];
+ var bestPhoto = [];
+   var bestName = [];
+
+   var bestScores = [];
 
 
     // console.log('best Match is read here 1' + bestMatch)
@@ -70,21 +67,36 @@ function Best () {
         };
     };
 
-    var bestData = {
+var bestData = {
         id: 8,
         name: bestName,
         photo: bestPhoto,
         scores: bestScores
     };
+    
+    console.log('Matched Name: ' + bestData.name);
+    console.log('Matched Photo: ' + bestData.photo);
+    console.log('Matched Scores: ' + bestData.scores);
+    console.log('-----------------------------------------------')
+
+
+    var bestArray = JSON.parse(bestData);
+    for(var i = 0; i< bestArray.length; i++) {
+        bestFriends.push(array[i]);
+    }
+
+    // JsonBestData = JSON.stringify(bestData);
+    // console.log('Matched Data sent to .json: ' + JsonBestData);
+    // console.log('-----------------------------------------------')
 
     //   res.json(bestData);
 
     //   console.log('is json responding to best data?' + res.json(bestData))
 
-    console.log('Matched Name: ' + bestData.name);
-    console.log('Matched Photo: ' + bestData.photo);
-    console.log('Matched Scores: ' + bestData.scores);
-    console.log('-----------------------------------------------')
+    // console.log('Matched Name: ' + bestData.name);
+    // console.log('Matched Photo: ' + bestData.photo);
+    // console.log('Matched Scores: ' + bestData.scores);
+    // console.log('-----------------------------------------------')
 
 
     // bestestFriendMatch = friendsData[bestData];
@@ -109,7 +121,7 @@ function Best () {
 
     //     friends.push(bestData);
 
-    JsonBestData = JSON.stringify(bestData);
+    // JsonBestData = JSON.stringify(bestData);
 
     //     bestServer = new XMLHttpRequest();
 
@@ -143,8 +155,8 @@ function Best () {
     // console.log('done with post call a: ');
 
     // console.log('-----------------------------------------------')
-    console.log('Matched Data sent to .json: ' + JsonBestData);
-    console.log('-----------------------------------------------')
+    // console.log('Matched Data sent to .json: ' + JsonBestData);
+    // console.log('-----------------------------------------------')
 
     // app.get("/api/bestData", function (data) {
     //     data.json(bestData);
@@ -159,6 +171,20 @@ function Best () {
     // });
 
     // console.log('done with post call a: ');
+};
+
+var bestMatch = [];
+
+var bestPhoto = [];
+  var bestName = [];
+
+  var bestScores = [];
+
+  var bestData = {
+    id: 8,
+    name: bestName,
+    photo: bestPhoto,
+    scores: bestScores
 };
 
 module.exports = {
