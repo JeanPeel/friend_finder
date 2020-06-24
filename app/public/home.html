@@ -6,481 +6,579 @@
     <title>FriendFinder</title>
 
     <!-- Latest compiled and minified CSS & JS -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+    <!-- <link rel="stylesheet" type="text/css"  href='/style/style.css'> -->
     <!-- Chosen -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+    
 </head>
 
 <body>
-    <div class="container">
-
-        <div class="jumbotron">
-            <h1><i class="fa fa-facebook-square" aria-hidden="true"></i> Friend Finder</h1>
-            <hr>
-            <h1>Avatar the Last Airbender Characters</h1>
-            <h3>Answer a few questions <br> see which avatar characters you are most like.</h3>
-            <br>
-
-            <div>
-                <a href="/survey"><button class="btn btn-large btn-primary">
-                        <h4><span class="fa fa-list-alt">
-
-                            </span> Go to Survey
-                        </h4>
-                    </button>
-                </a>
-            </div>
-
-        </div>
-
-        <div class='characters'>
-            <div class='rows'>
-                <div id='zeroA' class='character'></div>
-                <div id='zeroB' class='character'></div>
-                <div id='zeroC' class='character'></div>
-            </div>
-            <div class='rows'>
-                <div id='oneA' class='character'></div>
-                <div id='oneB' class='character'></div>
-                <div id='oneC' class='character'></div>
-            </div>
-            <div class='rows'>
-                <div id='twoA' class='character'></div>
-                <div id='twoB' class='character'></div>
-                <div id='twoC' class='character'></div>
-            </div>
-            <div class='rows'>
-                <div id='threeA' class='character'></div>
-                <div id='threeB' class='character'></div>
-                <div id='threeC' class='character'></div>
-            </div>
-            <div class='rows'>
-                <div id='fourA' class='character'></div>
-                <div id='fourB' class='character'></div>
-                <div id='fourC' class='character'></div>
-            </div>
-            <div class='rows'>
-                <div id='fiveA' class='character'></div>
-                <div id='fiveB' class='character'></div>
-                <div id='fiveC' class='character'></div>
-            </div>
-        </div>
-    </div>
-
-
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-
-            console.log("ready!");
-
-            // AJAX post the data to the friends API.
-            $.post("/api/friendsA", function (data) {
-                console.log('post ran')
-
-                // for (var i = 0; i < data.length; i++) {
-                for (var s = 0; s < data.length; s++) {
-                    console.log('for loop ran')
-                    var currentDataX = data[s];
-
-                    // console.log('current data x: ', currentDataX);
-
-                    if (currentDataX.id === 0) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                            
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                        
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#zeroA").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-
-                    if (currentDataX.id === 1) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                  
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                     
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#oneA").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-
-                    if (currentDataX.id === 2) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                     
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                          
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#twoA").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-
-                    if (currentDataX.id === 3) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                      
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                             
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#threeA").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-
-                    if (currentDataX.id === 4) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                            
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                             
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#fourA").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-                    
-                    if (currentDataX.id === 5) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                            
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                    
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#fiveA").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-                }
-
-            console.log('end of post A')
-
-            });
-        });
-
-        $.post("/api/friendsB", function (data) {
-                console.log('post ran')
-
-                // for (var i = 0; i < data.length; i++) {
-                for (var s = 0; s < data.length; s++) {
-                    console.log('for loop ran')
-                    var currentDataX = data[s];
-
-                    // console.log('current data x: ', currentDataX);
-
-                    if (currentDataX.id === 0) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                         
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                           
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#zeroB").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-
-                    if (currentDataX.id === 1) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                              
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                             
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#oneB").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-
-                    if (currentDataX.id === 2) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                           
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#twoB").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-
-                    if (currentDataX.id === 3) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                                
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                            
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#threeB").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-
-                    if (currentDataX.id === 4) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                            
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                              
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#fourB").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-                    
-                    if (currentDataX.id === 5) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                               
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                              
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#fiveB").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-                }
-
-            console.log('end of post A')
-
-            });
-
-
-
-        $.post("/api/friendsC", function (data) {
-                console.log('post ran')
-
-                // for (var i = 0; i < data.length; i++) {
-                for (var s = 0; s < data.length; s++) {
-                    console.log('for loop ran')
-                    var currentDataX = data[s];
-
-                    // console.log('current data x: ', currentDataX);
-
-                    if (currentDataX.id === 0) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                              
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                              
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#zeroC").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-
-                    if (currentDataX.id === 1) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                            
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                        
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#oneC").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-
-                    if (currentDataX.id === 2) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                         
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                         
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#twoC").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-
-                    if (currentDataX.id === 3) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                        
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                            
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#threeC").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-
-                    if (currentDataX.id === 4) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                              
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                            
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#fourC").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-                    
-                    if (currentDataX.id === 5) {
-                        console.log('if condition ran')
-
-                        console.log('current data id in if: ', currentDataX.id);
-
-                            insertHtml = (
-                                "<div class='match-imgs'>" +
-                              
-                                "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
-                                "<br>" +
-                             
-                                "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
-
-                        $("#fiveC").html( insertHtml);
-
-                         console.log('end of insert html')
-
-                    }
-                }
-
-            console.log('end of post A')
-
-            });
-   
-
-
-    </script>
-
-    <footer class="footer">
+    <div class='main_div'>
         <div class="container">
-            <p><a href="/api/friends">API Friends List</a> | <a href="/api/friends2">API Friends 2 List</a> | <a
-                    href="/api/friends3">API Friends 3 List</a> | <a
-                    href="https://github.com/JeanPeel/friend_finder">GitHub
-                    Repo</a></p>
+
+            <div class="jumbotron">
+                <h1><i class="fa fa-facebook-square" aria-hidden="true"></i> Friend Finder</h1>
+                <hr>
+                <h1>Avatar the Last Airbender Characters</h1>
+                <h3>Answer a few questions <br> see which avatar characters you are most like.</h3>
+                <br>
+
+                <div>
+                    <a href="/survey"><button class="btn btn-large btn-primary">
+                            <h4><span class="fa fa-list-alt">
+
+                                </span> Go to Survey
+                            </h4>
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class='characters'>
+                <div class='rows'>
+                    <div id='zeroA' class='character'>
+
+                        <a href='https://avatar.fandom.com/wiki/Cabbage_merchant' target="_blank">
+                            <img class="match-imgs"
+                                src="https://vignette.wikia.nocookie.net/avatar/images/2/2f/Cabbage_merchant.png/revision/latest?cb=20140112200908"
+                                alt='character photo'>
+                        </a>
+                        <br>
+                        <a href='https://avatar.fandom.com/wiki/Cabbage_merchant' target="_blank">
+                            <h2>
+                                Cabbage Merchant
+                            </h2>
+                        </a>
+
+                    </div>
+                    <div id='zeroB' class='character'>
+
+                        <a href='https://avatar.fandom.com/wiki/Cabbage_merchant' target="_blank">
+                            <img class="match-imgs"
+                                src="https://vignette.wikia.nocookie.net/avatar/images/2/2f/Cabbage_merchant.png/revision/latest?cb=20140112200908"
+                                alt='character photo'>
+                        </a>
+                        <br>
+                        <a href='https://avatar.fandom.com/wiki/Cabbage_merchant' target="_blank">
+                            <h2>
+                                Cabbage Merchant
+                            </h2>
+                        </a>
+
+                    </div>
+                    <div id='zeroC' class='character'>
+
+                        <a href='https://avatar.fandom.com/wiki/Cabbage_merchant' target="_blank">
+                            <img class="match-imgs"
+                                src="https://vignette.wikia.nocookie.net/avatar/images/2/2f/Cabbage_merchant.png/revision/latest?cb=20140112200908"
+                                alt='character photo'>
+                        </a>
+                        <br>
+                        <a href='https://avatar.fandom.com/wiki/Cabbage_merchant' target="_blank">
+                            <h2>
+                                Cabbage Merchant
+                            </h2>
+                        </a>
+
+                    </div>
+                </div>
+                <div class='rows'>
+                    <div id='oneA' class='character'>
+
+
+                        <div id='oneB' class='character'>
+
+
+
+                        </div>
+                        <div id='oneC' class='character'>
+
+
+                        </div>
+                    </div>
+                    <div class='rows'>
+                        <div id='twoA' class='character'>
+
+
+
+                        </div>
+                        <div id='twoB' class='character'>
+
+
+
+                        </div>
+                        <div id='twoC' class='character'>
+
+
+
+                        </div>
+                    </div>
+                    <div class='rows'>
+                        <div id='threeA' class='character'>
+
+
+
+                        </div>
+                        <div id='threeB' class='character'>
+
+
+                        </div>
+                        <div id='threeC' class='character'>
+
+
+                        </div>
+                    </div>
+                    <div class='rows'>
+                        <div id='fourA' class='character'>
+
+
+
+                        </div>
+                        <div id='fourB' class='character'>
+
+
+
+                        </div>
+                        <div id='fourC' class='character'>
+
+
+                        </div>
+                    </div>
+                    <div class='rows'>
+                        <div id='fiveA' class='character'>
+
+
+                        </div>
+                        <div id='fiveB' class='character'>
+
+
+
+                        </div>
+                        <div id='fiveC' class='character'>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                console.log("ready!");
+
+                // AJAX post the data to the friends API.
+                    $.post("/api/friendsA", function (data) {
+                        console.log('post ran')
+
+                        // for (var i = 0; i < data.length; i++) {
+                        for (var s = 0; s < data.length; s++) {
+                            console.log('for loop ran')
+                            var currentDataX = data[s];
+
+                            // console.log('current data x: ', currentDataX);
+
+                            if (currentDataX.id === 0) {
+                                console.log('if condition ran')
+
+                                console.log('current data id in if: ', currentDataX.id);
+
+                                insertHtml = (
+                                    "<div class='match-imgs'>" +
+
+                                    "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                    "<br>" +
+
+                                    "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                                    $("#zeroA").html(insertHtml);
+
+                                console.log('end of insert html')
+
+                            }
+
+                            if (currentDataX.id === 1) {
+                                console.log('if condition ran')
+
+                                console.log('current data id in if: ', currentDataX.id);
+
+                                insertHtml = (
+                                    "<div class='match-imgs'>" +
+
+                                    "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                    "<br>" +
+
+                                    "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                                    $("#oneA").html(insertHtml);
+
+                                console.log('end of insert html')
+
+                            }
+
+                            if (currentDataX.id === 2) {
+                                console.log('if condition ran')
+
+                                console.log('current data id in if: ', currentDataX.id);
+
+                                insertHtml = (
+                                    "<div class='match-imgs'>" +
+
+                                    "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                    "<br>" +
+
+                                    "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                                    $("#twoA").html(insertHtml);
+
+                                console.log('end of insert html')
+
+                            }
+
+                            if (currentDataX.id === 3) {
+                                console.log('if condition ran')
+
+                                console.log('current data id in if: ', currentDataX.id);
+
+                                insertHtml = (
+                                    "<div class='match-imgs'>" +
+
+                                    "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                    "<br>" +
+
+                                    "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                                    $("#threeA").html(insertHtml);
+
+                                console.log('end of insert html')
+
+                            }
+
+                            if (currentDataX.id === 4) {
+                                console.log('if condition ran')
+
+                                console.log('current data id in if: ', currentDataX.id);
+
+                                insertHtml = (
+                                    "<div class='match-imgs'>" +
+
+                                    "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                    "<br>" +
+
+                                    "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                                    $("#fourA").html(insertHtml);
+
+                                console.log('end of insert html')
+
+                            }
+
+                            if (currentDataX.id === 5) {
+                                console.log('if condition ran')
+
+                                console.log('current data id in if: ', currentDataX.id);
+
+                                insertHtml = (
+                                    "<div class='match-imgs'>" +
+
+                                    "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                                    "<br>" +
+
+                                    "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                                    $("#fiveA").html(insertHtml);
+
+                                console.log('end of insert html')
+
+                            }
+                        }
+
+                        console.log('end of post A')
+
+                    });
+            });
+
+            $.post("/api/friendsB", function (data) {
+                console.log('post ran')
+
+                // for (var i = 0; i < data.length; i++) {
+                for (var s = 0; s < data.length; s++) {
+                    console.log('for loop ran')
+                    var currentDataX = data[s];
+
+                    // console.log('current data x: ', currentDataX);
+
+                    if (currentDataX.id === 0) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                        insertHtml = (
+                            "<div class='match-imgs'>" +
+
+                            "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                            "<br>" +
+
+                            "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                            $("#zeroB").html(insertHtml);
+
+                        console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 1) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                        insertHtml = (
+                            "<div class='match-imgs'>" +
+
+                            "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                            "<br>" +
+
+                            "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                            $("#oneB").html(insertHtml);
+
+                        console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 2) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                        insertHtml = (
+                            "<div class='match-imgs'>" +
+
+                            "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                            "<br>" +
+                            "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                            $("#twoB").html(insertHtml);
+
+                        console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 3) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                        insertHtml = (
+                            "<div class='match-imgs'>" +
+
+                            "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                            "<br>" +
+
+                            "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                            $("#threeB").html(insertHtml);
+
+                        console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 4) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                        insertHtml = (
+                            "<div class='match-imgs'>" +
+
+                            "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                            "<br>" +
+
+                            "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                            $("#fourB").html(insertHtml);
+
+                        console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 5) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                        insertHtml = (
+                            "<div class='match-imgs'>" +
+
+                            "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                            "<br>" +
+
+                            "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                            $("#fiveB").html(insertHtml);
+
+                        console.log('end of insert html')
+
+                    }
+                }
+
+                console.log('end of post A')
+
+            });
+
+
+
+            $.post("/api/friendsC", function (data) {
+                console.log('post ran')
+
+                // for (var i = 0; i < data.length; i++) {
+                for (var s = 0; s < data.length; s++) {
+                    console.log('for loop ran')
+                    var currentDataX = data[s];
+
+                    // console.log('current data x: ', currentDataX);
+
+                    if (currentDataX.id === 0) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                        insertHtml = (
+                            "<div class='match-imgs'>" +
+
+                            "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                            "<br>" +
+
+                            "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                            $("#zeroC").html(insertHtml);
+
+                        console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 1) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                        insertHtml = (
+                            "<div class='match-imgs'>" +
+
+                            "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                            "<br>" +
+
+                            "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                            $("#oneC").html(insertHtml);
+
+                        console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 2) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                        insertHtml = (
+                            "<div class='match-imgs'>" +
+
+                            "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                            "<br>" +
+
+                            "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                            $("#twoC").html(insertHtml);
+
+                        console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 3) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                        insertHtml = (
+                            "<div class='match-imgs'>" +
+
+                            "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                            "<br>" +
+
+                            "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                            $("#threeC").html(insertHtml);
+
+                        console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 4) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                        insertHtml = (
+                            "<div class='match-imgs'>" +
+
+                            "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                            "<br>" +
+
+                            "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                            $("#fourC").html(insertHtml);
+
+                        console.log('end of insert html')
+
+                    }
+
+                    if (currentDataX.id === 5) {
+                        console.log('if condition ran')
+
+                        console.log('current data id in if: ', currentDataX.id);
+
+                        insertHtml = (
+                            "<div class='match-imgs'>" +
+
+                            "<img src='" + currentDataX.photo + "&apos;" + "class = 'match-imgs'>" + "</a>" +
+                            "<br>" +
+
+                            "<h2>" + currentDataX.name + "</h2>" + "</a>" + "</div>"),
+
+                            $("#fiveC").html(insertHtml);
+
+                        console.log('end of insert html')
+
+                    }
+                }
+
+                console.log('end of post A')
+
+            });
+
+
+
+        </script>
+
+        <footer class="footer">
+            <div class="container">
+                <p><a href="/api/friends">API Friends List</a> | <a href="/api/friends2">API Friends 2 List</a> | <a
+                        href="/api/friends3">API Friends 3 List</a> | <a
+                        href="https://github.com/JeanPeel/friend_finder">GitHub
+                        Repo</a></p>
+            </div>
+        </footer>
 
 
 

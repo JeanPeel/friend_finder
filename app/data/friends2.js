@@ -19,7 +19,7 @@ var friends2 = [
     {
         'id': 1,
         "name": "Mai",
-        "photo": "https://vignette.wikia.nocookie.net/avatar/images/1/12/Azula.png/revision/latest?cb=20140905084941",
+        "photo": "https://vignette.wikia.nocookie.net/avatar/images/4/40/Mai.png/revision/latest?cb=20090406114652",
         "scores": [
             2,
             2,
